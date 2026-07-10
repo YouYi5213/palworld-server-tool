@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
-import { NButton, NSwitch, NInputNumber, NInput, NSelect, NSpace, NTabPane, NTabs, NTag, NIcon, useMessage } from "naive-ui";
+import { NButton, NSwitch, NInputNumber, NInput, NSelect, NSpace, NTabPane, NTabs, NTag, NIcon, NModal, useMessage } from "naive-ui";
+import { UploadOutlined } from "@vicons/material";
 import ApiService from "@/service/api";
 import { SettingsPowerRound } from "@vicons/material";
 
@@ -12,6 +13,61 @@ const configMap = ref({});
 const loading = ref(false);
 const saving = ref(false);
 const activeTab = ref("server");
+const showImportModal = ref(false);
+const importText = ref("");
+const fileInput = ref(null);
+
+function parseIniToMap(text) {
+  const map = {};
+  const start = text.indexOf("OptionSettings=(");
+  if (start === -1) return map;
+  let body = text.substring(start + "OptionSettings=(".length);
+  let depth = 1;
+  let end = 0;
+  for (let i = 0; i < body.length; i++) {
+    if (body[i] === "(") depth++;
+    else if (body[i] === ")") { depth--; if (depth === 0) { end = i; break; } }
+  }
+  body = body.substring(0, end);
+  let i = 0;
+  while (i < body.length) {
+    const eq = body.indexOf("=", i);
+    if (eq === -1) break;
+    const key = body.substring(i, eq).trim();
+    i = eq + 1;
+    if (i >= body.length) break;
+    const ch = body[i];
+    let val;
+    if (ch === '"') {
+      const close = body.indexOf('"', i + 1);
+      val = body.substring(i + 1, close === -1 ? body.length : close);
+      i = close === -1 ? body.length : close + 1;
+    } else if (ch === "(") {
+      let pd = 1;
+      let j = i + 1;
+      for (; j < body.length; j++) {
+        if (body[j] === "(") pd++;
+        else if (body[j] === ")") { pd--; if (pd === 0) break; }
+      }
+      val = body.substring(i + 1, j);
+      i = j + 1;
+    } else {
+      const comma = body.indexOf(",", i);
+      val = body.substring(i, comma === -1 ? body.length : comma).trim();
+      i = comma === -1 ? body.length : comma + 1;
+    }
+    map[key] = val;
+  }
+  return map;
+}
+
+function applyImportMap(map) {
+  for (const s of SETTINGS) {
+    if (map[s.key] !== undefined) {
+      configMap.value[s.key] = map[s.key];
+    }
+  }
+}
 
 const CATEGORIES = [
   { key: "server", label: "服务器设置" },
@@ -153,6 +209,39 @@ const updateVal = (setting, val) => {
   configMap.value[setting.key] = setting.type === "bool" ? (val ? "True" : "False") : String(val);
 };
 
+const handleFileImport = (e) => {
+  const file = e.target.files?.[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    const text = ev.target?.result;
+    if (typeof text === "string") {
+      const map = parseIniToMap(text);
+      applyImportMap(map);
+      message.success("已从文件导入 " + Object.keys(map).length + " 项配置");
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = "";
+};
+
+const handlePasteImport = () => {
+  const text = importText.value;
+  if (!text.trim()) {
+    message.warning("请先粘贴配置文件内容");
+    return;
+  }
+  const map = parseIniToMap(text);
+  if (Object.keys(map).length === 0) {
+    message.error("未识别到有效的配置内容，请检查格式");
+    return;
+  }
+  applyImportMap(map);
+  showImportModal.value = false;
+  importText.value = "";
+  message.success("已导入 " + Object.keys(map).length + " 项配置");
+};
+
 onMounted(() => {
   fetchConfig();
 });
@@ -171,6 +260,16 @@ onMounted(() => {
           服务端已停止，可编辑
         </n-tag>
       </div>
+      <n-space>
+        <input ref="fileInput" type="file" accept=".ini,.txt" style="display:none" @change="handleFileImport" />
+        <n-button size="small" secondary :disabled="serverRunning" @click="fileInput?.click()">
+          <template #icon><n-icon><UploadOutlined /></n-icon></template>
+          上传文件
+        </n-button>
+        <n-button size="small" secondary :disabled="serverRunning" @click="showImportModal = true">
+          粘贴导入
+        </n-button>
+      </n-space>
     </div>
 
     <n-tabs v-model:value="activeTab" type="line" animated>
@@ -202,6 +301,19 @@ onMounted(() => {
       </n-button>
     </div>
   </div>
+
+  <n-modal v-model:show="showImportModal" preset="card" style="width: 90%; max-width: 700px" title="粘贴配置文件" size="large" :bordered="false" :segmented="{ content: true }">
+    <div>
+      <p class="text-sm text-gray-400 mb-3">请复制 PalWorldSettings.ini 的内容粘贴到下方文本框，点击确认后自动识别并填充配置项。</p>
+      <n-input type="textarea" v-model:value="importText" rows="12" placeholder="在此粘贴 PalWorldSettings.ini 内容..." />
+    </div>
+    <template #footer>
+      <div class="flex justify-end gap-3">
+        <n-button @click="showImportModal = false">取消</n-button>
+        <n-button type="primary" @click="handlePasteImport">确认导入</n-button>
+      </div>
+    </template>
+  </n-modal>
 </template>
 
 <style scoped>

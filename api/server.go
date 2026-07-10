@@ -179,13 +179,8 @@ type ServerStatusResponse struct {
 	Running bool `json:"running"`
 }
 
-type ConfigEntry struct {
-	Key   string `json:"key"`
-	Value string `json:"value"`
-}
-
 type UpdateConfigRequest struct {
-	Entries []ConfigEntry `json:"entries"`
+	Entries []tool.ConfigEntry `json:"entries"`
 }
 
 // startServerProcess godoc
