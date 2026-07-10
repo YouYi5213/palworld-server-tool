@@ -226,6 +226,43 @@ func formatValue(v string) string {
 	return "\"" + v + "\""
 }
 
+func ScanConfigPaths() []string {
+	var found []string
+	seen := make(map[string]bool)
+	sp := viper.GetString("save.path")
+	if sp != "" {
+		dir := sp
+		for i := 0; i < 10; i++ {
+			for _, platform := range []string{"Linux", "Windows"} {
+				candidate := filepath.Join(dir, "Saved", "Config", platform+"Server", "PalWorldSettings.ini")
+				candidate = filepath.Clean(candidate)
+				if !seen[candidate] {
+					seen[candidate] = true
+					if _, err := os.Stat(candidate); err == nil {
+						found = append(found, candidate)
+					}
+				}
+			}
+			parent := filepath.Dir(dir)
+			if parent == dir {
+				break
+			}
+			dir = parent
+		}
+	}
+	return found
+}
+
+func SetConfigPath(path string) error {
+	path = filepath.Clean(path)
+	if _, err := os.Stat(path); err != nil {
+		return fmt.Errorf("config file not found at %s: %w", path, err)
+	}
+	viper.Set("server.config_path", path)
+	logger.Infof("config path set to %s\n", path)
+	return nil
+}
+
 func isNumeric(s string) bool {
 	if s == "" {
 		return false

@@ -179,6 +179,10 @@ type ServerStatusResponse struct {
 	Running bool `json:"running"`
 }
 
+type SetConfigPathRequest struct {
+	Path string `json:"path"`
+}
+
 type UpdateConfigRequest struct {
 	Entries []tool.ConfigEntry `json:"entries"`
 }
@@ -239,6 +243,46 @@ func getServerStatus(c *gin.Context) {
 		return
 	}
 	c.JSON(http.StatusOK, ServerStatusResponse{Running: running})
+}
+
+// scanServerConfig godoc
+//
+//	@Summary		Scan for PalWorldSettings.ini
+//	@Description	Scan common locations for PalWorldSettings.ini files
+//	@Tags			Server
+//	@Accept			json
+//	@Produce		json
+//	@Security		ApiKeyAuth
+//	@Success		200	{object}	map[string][]string
+//	@Router			/api/server/config/scan [get]
+func scanServerConfig(c *gin.Context) {
+	paths := tool.ScanConfigPaths()
+	c.JSON(http.StatusOK, gin.H{"paths": paths})
+}
+
+// setServerConfigPath godoc
+//
+//	@Summary		Set PalWorldSettings.ini Path
+//	@Description	Set the path to PalWorldSettings.ini for this session
+//	@Tags			Server
+//	@Accept			json
+//	@Produce		json
+//	@Security		ApiKeyAuth
+//	@Param			path	body		SetConfigPathRequest	true	"Config Path"
+//	@Success		200		{object}	SuccessResponse
+//	@Failure		400		{object}	ErrorResponse
+//	@Router			/api/server/config/path [post]
+func setServerConfigPath(c *gin.Context) {
+	var req SetConfigPathRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	if err := tool.SetConfigPath(req.Path); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"success": true})
 }
 
 // getServerConfig godoc

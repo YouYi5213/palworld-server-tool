@@ -90,6 +90,8 @@ func RegisterRouter(r *gin.Engine) {
 		authGroup.POST("/server/reset", resetServerData)
 		authGroup.GET("/server/config", getServerConfig)
 		authGroup.PUT("/server/config", updateServerConfig)
+		authGroup.GET("/server/config/scan", scanServerConfig)
+		authGroup.POST("/server/config/path", setServerConfigPath)
 		authGroup.PUT("/player", putPlayers)
 		authGroup.POST("/player/:player_uid/kick", kickPlayer)
 		authGroup.POST("/player/:player_uid/ban", banPlayer)

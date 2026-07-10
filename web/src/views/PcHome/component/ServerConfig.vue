@@ -16,6 +16,10 @@ const activeTab = ref("server");
 const showImportModal = ref(false);
 const importText = ref("");
 const fileInput = ref(null);
+const showPathSelector = ref(false);
+const scannedPaths = ref([]);
+const manualPath = ref("");
+const scanning = ref(false);
 
 function parseIniToMap(text) {
   const map = {};
@@ -168,6 +172,32 @@ const getVal = (setting) => {
   return v;
 };
 
+const doScan = async () => {
+  scanning.value = true;
+  try {
+    const { data } = await new ApiService().fetch(`/api/server/config/scan`).get().json();
+    scannedPaths.value = data.value?.paths || [];
+  } catch (e) {
+    scannedPaths.value = [];
+  }
+  scanning.value = false;
+};
+
+const doSetPath = async (path) => {
+  try {
+    const { statusCode } = await new ApiService().fetch(`/api/server/config/path`).post({ path }).json();
+    if (statusCode.value === 200) {
+      message.success("路径已设置");
+      showPathSelector.value = false;
+      fetchConfig();
+    } else {
+      message.error("路径无效");
+    }
+  } catch (e) {
+    message.error("设置路径失败");
+  }
+};
+
 const fetchConfig = async () => {
   loading.value = true;
   try {
@@ -179,9 +209,11 @@ const fetchConfig = async () => {
           configMap.value[entry.key] = entry.value;
         }
       }
+      showPathSelector.value = false;
     }
   } catch (e) {
-    message.error("读取配置失败");
+    showPathSelector.value = true;
+    doScan();
   }
   loading.value = false;
 };
@@ -272,6 +304,20 @@ onMounted(() => {
       </n-space>
     </div>
 
+    <div v-if="showPathSelector" class="mb-4 p-4 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-yellow-900/20">
+      <p class="text-sm mb-3">未找到 PalWorldSettings.ini，请选择或输入配置文件的路径：</p>
+      <n-space v-if="scannedPaths.length > 0" class="mb-3" vertical>
+        <div v-for="p in scannedPaths" :key="p" class="flex items-center gap-2">
+          <code class="text-xs flex-1 break-all">{{ p }}</code>
+          <n-button size="tiny" type="primary" @click="doSetPath(p)">使用此路径</n-button>
+        </div>
+      </n-space>
+      <n-space v-else class="mb-3">
+        <n-button secondary :loading="scanning" @click="doScan">重新扫描</n-button>
+      </n-space>
+      <n-input v-model:value="manualPath" placeholder="或手动输入完整路径，如 /home/palworld/.../PalWorldSettings.ini" />
+      <n-button class="mt-2" type="primary" :disabled="!manualPath.trim()" @click="doSetPath(manualPath.trim())">确认路径</n-button>
+    </div>
     <n-tabs v-model:value="activeTab" type="line" animated>
       <n-tab-pane v-for="cat in CATEGORIES" :key="cat.key" :name="cat.key" :tab="cat.label">
         <div v-if="loading" class="text-center py-8 text-gray-400">加载中...</div>
