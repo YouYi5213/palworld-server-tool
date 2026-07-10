@@ -1,0 +1,37 @@
+web:
+  password: ""
+  port: 8080
+  tls: false
+  cert_path: ""
+  key_path: ""
+  public_url: ""
+task:
+  sync_interval: 60
+  player_logging: false
+  player_login_message: "Player {username} has joined the server! Current online player count: {online_num}."
+  player_logout_message: "Player {username} has left the server! Current online player count: {online_num}."
+rcon:
+  address: "127.0.0.1:25575"
+  password: ""
+  use_base64: false
+  timeout: 5
+rest:
+  address: "http://127.0.0.1:8212"
+  username: "admin"
+  password: ""
+  timeout: 5
+save:
+  path: "/path/to/your/Pal/Saved"
+  decode_path: ""
+  sync_interval: 120
+  backup_interval: 14400
+  backup_keep_days: 7
+manage:
+  kick_non_whitelist: false
+server:
+  # 服务端启动命令（宿主机上启动 PalWorld 服务端的命令）
+  start_command: "su - palworld -c /home/palworld/start_server.sh"
+  # 服务端停止命令（可选，不配置则使用 stop_pattern + pkill/taskkill）
+  stop_command: ""
+  # 进程匹配模式（用于 pkill/pgrep/tasklist，默认 PalServer）
+  stop_pattern: "PalServer"
