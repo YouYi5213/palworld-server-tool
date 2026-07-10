@@ -20,6 +20,34 @@ import (
 	"go.etcd.io/bbolt"
 )
 
+func ResetServerData() error {
+	_, err := Backup()
+	if err != nil {
+		return fmt.Errorf("failed to backup save before reset: %w", err)
+	}
+	if err := StopServer(); err != nil {
+		logger.Warnf("failed to stop server during reset: %v\n", err)
+	}
+	savePath := viper.GetString("save.path")
+	if savePath == "" {
+		return fmt.Errorf("save.path is not configured")
+	}
+	levelSavPath := filepath.Join(savePath, "Level.sav")
+	if _, err := os.Stat(levelSavPath); err == nil {
+		if err := os.Remove(levelSavPath); err != nil {
+			return fmt.Errorf("failed to remove Level.sav: %w", err)
+		}
+	}
+	playersDir := filepath.Join(savePath, "Players")
+	if _, err := os.Stat(playersDir); err == nil {
+		if err := os.RemoveAll(playersDir); err != nil {
+			return fmt.Errorf("failed to remove Players directory: %w", err)
+		}
+	}
+	logger.Info("Server data has been reset successfully\n")
+	return nil
+}
+
 type Sturcture struct {
 	Players []database.Player `json:"players"`
 	Guilds  []database.Guild  `json:"guilds"`

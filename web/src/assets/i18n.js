@@ -86,6 +86,9 @@ const messages = {
       stopfail: "Failed to stop server: {err}",
       starttip: "Are you sure to start the server?",
       stoptip: "Are you sure to stop the server?",
+      resettip: "This will backup the save, stop the server, and clear all pal data. The world will be reset. Are you sure?",
+      resetsuccess: "Server data reset success!",
+      resetfail: "Server data reset failed: {err}",
     },
     button: {
       auth: "Admin Mode",
@@ -128,6 +131,7 @@ const messages = {
       stop_server: "Stop Server",
       give: "Give",
       clear: "Clear",
+      reset: "Reset Server",
     },
     pal: {
       type: "Type",
@@ -266,6 +270,9 @@ const messages = {
       stopfail: "服务端停止失败: {err}",
       starttip: "确定要启动服务端吗?",
       stoptip: "确定要停止服务端吗?",
+      resettip: "此操作将备份存档、停止服务端并清空所有帕鲁数据，世界将被重置。确定要继续吗?",
+      resetsuccess: "服务器数据已重置!",
+      resetfail: "服务器数据重置失败: {err}",
     },
     button: {
       auth: "管理模式",
@@ -308,6 +315,7 @@ const messages = {
       stop_server: "停止服务端",
       give: "给予",
       clear: "清空",
+      reset: "重置服务器",
     },
     pal: {
       type: "类型",
@@ -447,6 +455,9 @@ const messages = {
       stopfail: "サーバー停止に失敗しました: {err}",
       starttip: "サーバーを起動しますか？",
       stoptip: "サーバーを停止しますか？",
+      resettip: "セーブをバックアップし、サーバーを停止してすべてのパルデータを消去します。ワールドがリセットされます。よろしいですか？",
+      resetsuccess: "サーバーデータをリセットしました！",
+      resetfail: "サーバーデータのリセットに失敗しました: {err}",
     },
     button: {
       auth: "管理者モード",
@@ -487,6 +498,7 @@ const messages = {
       stop_server: "サーバー停止",
       give: "付与",
       clear: "クリア",
+      reset: "サーバーリセット",
     },
     item: {
       palList: "幻獣リスト",

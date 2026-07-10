@@ -32,6 +32,9 @@ class ApiService extends Service {
   async stopServer() {
     return this.fetch(`/api/server/stop`).post().json();
   }
+  async resetServer() {
+    return this.fetch(`/api/server/reset`).post().json();
+  }
 
   async getPlayerList(param) {
     const query = this.generateQuery(param);

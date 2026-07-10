@@ -483,6 +483,21 @@ const controlCenterOption = [
     key: "shutdown",
     icon: renderIcon(SettingsPowerRound, "#cc2d48"),
   },
+  {
+    label: () => {
+      return h(
+        "div",
+        {
+          style: { color: "#cc2d48" },
+        },
+        {
+          default: () => t("button.reset"),
+        }
+      );
+    },
+    key: "reset",
+    icon: renderIcon(DeleteOutlineTwotone, "#cc2d48"),
+  },
 ];
 const handleSelectControlCenter = (key) => {
   if (key === "palconf") {
@@ -495,6 +510,8 @@ const handleSelectControlCenter = (key) => {
     handleStartBrodcast();
   } else if (key === "shutdown") {
     handleShutdown();
+  } else if (key === "reset") {
+    handleReset();
   } else {
     message.error("错误");
   }
@@ -675,6 +692,32 @@ const handleServerToggle = () => {
         }, 3000);
       } else {
         message.error(t(action === "stop" ? "message.stopfail" : "message.startfail", { err: data.value?.error }));
+      }
+    },
+    onNegativeClick: () => {},
+  });
+};
+
+const handleReset = () => {
+  if (!checkAuthToken()) {
+    message.error(t("message.requireauth"));
+    showLoginModal.value = true;
+    return;
+  }
+  dialog.warning({
+    title: t("message.warn"),
+    content: t("message.resettip"),
+    positiveText: t("button.confirm"),
+    negativeText: t("button.cancel"),
+    onPositiveClick: async () => {
+      const { data, statusCode } = await new ApiService().resetServer();
+      if (statusCode.value === 200) {
+        message.success(t("message.resetsuccess"));
+        setTimeout(async () => {
+          await getServerStatus();
+        }, 3000);
+      } else {
+        message.error(t("message.resetfail", { err: data.value?.error }));
       }
     },
     onNegativeClick: () => {},

@@ -237,6 +237,26 @@ func getServerStatus(c *gin.Context) {
 	c.JSON(http.StatusOK, ServerStatusResponse{Running: running})
 }
 
+// resetServerData godoc
+//
+//	@Summary		Reset Server Data
+//	@Description	Backup save, stop server, and clear save data to reset the world
+//	@Tags			Server
+//	@Accept			json
+//	@Produce		json
+//	@Security		ApiKeyAuth
+//	@Success		200	{object}	SuccessResponse
+//	@Failure		400	{object}	ErrorResponse
+//	@Failure		401	{object}	ErrorResponse
+//	@Router			/api/server/reset [post]
+func resetServerData(c *gin.Context) {
+	if err := tool.ResetServerData(); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"success": true})
+}
+
 func validateMessage(message string) error {
 	if message == "" {
 		return errors.New("message cannot be empty")
