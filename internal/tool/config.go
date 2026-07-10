@@ -25,10 +25,19 @@ func GetConfigFilePath() string {
 		return ""
 	}
 	platform := "Linux"
-	if sp == "" {
-		return ""
+	candidates := []string{
+		filepath.Join(sp, "..", "..", "..", "..", "Saved", "Config", platform+"Server", "PalWorldSettings.ini"),
+		filepath.Join(sp, "..", "..", "..", "Saved", "Config", platform+"Server", "PalWorldSettings.ini"),
+		filepath.Join(sp, "..", "..", "Saved", "Config", platform+"Server", "PalWorldSettings.ini"),
+		filepath.Join(sp, "Saved", "Config", platform+"Server", "PalWorldSettings.ini"),
 	}
-	return filepath.Join(sp, "..", "..", "..", "Config", platform+"Server", "PalWorldSettings.ini")
+	for _, p := range candidates {
+		if _, err := os.Stat(p); err == nil {
+			return p
+		}
+	}
+	// fallback: assume save.path is directly under Pal/Saved/
+	return filepath.Join(sp, "..", "..", "Config", platform+"Server", "PalWorldSettings.ini")
 }
 
 func ReadConfig() ([]ConfigEntry, string, error) {
