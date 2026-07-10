@@ -32,16 +32,18 @@ func ResetServerData() error {
 	if savePath == "" {
 		return fmt.Errorf("save.path is not configured")
 	}
-	levelSavPath := filepath.Join(savePath, "Level.sav")
-	if _, err := os.Stat(levelSavPath); err == nil {
-		if err := os.Remove(levelSavPath); err != nil {
-			return fmt.Errorf("failed to remove Level.sav: %w", err)
-		}
+	savDir, err := system.GetSavDir(savePath)
+	if err != nil {
+		return fmt.Errorf("failed to locate save directory: %w", err)
 	}
-	playersDir := filepath.Join(savePath, "Players")
-	if _, err := os.Stat(playersDir); err == nil {
-		if err := os.RemoveAll(playersDir); err != nil {
-			return fmt.Errorf("failed to remove Players directory: %w", err)
+	entries, err := os.ReadDir(savDir)
+	if err != nil {
+		return fmt.Errorf("failed to read save directory %s: %w", savDir, err)
+	}
+	for _, entry := range entries {
+		fullPath := filepath.Join(savDir, entry.Name())
+		if err := os.RemoveAll(fullPath); err != nil {
+			return fmt.Errorf("failed to remove %s: %w", fullPath, err)
 		}
 	}
 	logger.Info("Server data has been reset successfully\n")
