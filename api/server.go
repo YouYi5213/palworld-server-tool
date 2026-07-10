@@ -179,6 +179,15 @@ type ServerStatusResponse struct {
 	Running bool `json:"running"`
 }
 
+type ConfigEntry struct {
+	Key   string `json:"key"`
+	Value string `json:"value"`
+}
+
+type UpdateConfigRequest struct {
+	Entries []ConfigEntry `json:"entries"`
+}
+
 // startServerProcess godoc
 //
 //	@Summary		Start Server Process
@@ -235,6 +244,60 @@ func getServerStatus(c *gin.Context) {
 		return
 	}
 	c.JSON(http.StatusOK, ServerStatusResponse{Running: running})
+}
+
+// getServerConfig godoc
+//
+//	@Summary		Get Server Config
+//	@Description	Read PalWorldSettings.ini and return parsed entries
+//	@Tags			Server
+//	@Accept			json
+//	@Produce		json
+//	@Security		ApiKeyAuth
+//	@Success		200	{object}	ConfigResponse
+//	@Failure		400	{object}	ErrorResponse
+//	@Router			/api/server/config [get]
+func getServerConfig(c *gin.Context) {
+	running, err := tool.IsServerRunning()
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	entries, raw, err := tool.ReadConfig()
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"entries": entries,
+		"raw":     raw,
+		"running": running,
+	})
+}
+
+// updateServerConfig godoc
+//
+//	@Summary		Update Server Config
+//	@Description	Update PalWorldSettings.ini with new values. Server must be stopped.
+//	@Tags			Server
+//	@Accept			json
+//	@Produce		json
+//	@Security		ApiKeyAuth
+//	@Param			config	body		UpdateConfigRequest	true	"Config Entries"
+//	@Success		200		{object}	SuccessResponse
+//	@Failure		400		{object}	ErrorResponse
+//	@Router			/api/server/config [put]
+func updateServerConfig(c *gin.Context) {
+	var req UpdateConfigRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	if err := tool.WriteConfig(req.Entries); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"success": true})
 }
 
 // resetServerData godoc

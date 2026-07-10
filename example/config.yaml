@@ -35,3 +35,5 @@ server:
   stop_command: ""
   # 进程匹配模式（用于 pkill/pgrep/tasklist，默认 PalServer）
   stop_pattern: "PalServer"
+  # PalWorldSettings.ini 路径（可选，不配置则从 save.path 自动推导）
+  config_path: ""

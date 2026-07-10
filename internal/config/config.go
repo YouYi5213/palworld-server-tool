@@ -48,6 +48,7 @@ type Config struct {
 		StartCommand string `mapstructure:"start_command"`
 		StopCommand  string `mapstructure:"stop_command"`
 		StopPattern  string `mapstructure:"stop_pattern"`
+		ConfigPath   string `mapstructure:"config_path"`
 	} `mapstructure:"server"`
 }
 

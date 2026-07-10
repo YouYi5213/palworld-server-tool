@@ -32,6 +32,7 @@ import skillMap from "@/assets/skill.json";
 import PlayerList from "./component/PlayerList.vue";
 import GuildList from "./component/GuildList.vue";
 import MapView from "./component/MapView.vue";
+import ServerConfig from "./component/ServerConfig.vue";
 import whitelistStore from "@/stores/model/whitelist";
 import playerToGuildStore from "@/stores/model/playerToGuild";
 import { watch } from "vue";
@@ -444,6 +445,15 @@ const controlCenterOption = [
   {
     label: () => {
       return h("div", null, {
+        default: () => t("button.serverConfig"),
+      });
+    },
+    key: "serverConfig",
+    icon: renderIcon(Settings),
+  },
+  {
+    label: () => {
+      return h("div", null, {
         default: () => t("button.whitelist"),
       });
     },
@@ -502,6 +512,8 @@ const controlCenterOption = [
 const handleSelectControlCenter = (key) => {
   if (key === "palconf") {
     toPalConf();
+  } else if (key === "serverConfig") {
+    showServerConfig.value = true;
   } else if (key === "whitelist") {
     handleWhiteList();
   } else if (key === "rcon") {
@@ -782,6 +794,7 @@ const isTokenExpired = (token) => {
   return payload.exp < Date.now() / 1000;
 };
 
+const showServerConfig = ref(false);
 const backupModal = ref(false);
 const backupList = ref([]);
 
@@ -1732,5 +1745,8 @@ onMounted(async () => {
         </n-space>
       </div>
     </template>
+  </n-modal>
+  <n-modal v-model:show="showServerConfig" class="custom-card" preset="card" style="width: 90%; max-width: 800px" footer-style="padding: 0" content-style="padding: 16px" header-style="padding: 16px" title="服务器配置" size="large" :bordered="false" :segmented="segmented">
+    <server-config @close="showServerConfig = false" />
   </n-modal>
 </template>
