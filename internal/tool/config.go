@@ -29,15 +29,17 @@ func GetConfigFilePath() string {
 		filepath.Join(sp, "..", "..", "..", "..", "Saved", "Config", platform+"Server", "PalWorldSettings.ini"),
 		filepath.Join(sp, "..", "..", "..", "Saved", "Config", platform+"Server", "PalWorldSettings.ini"),
 		filepath.Join(sp, "..", "..", "Saved", "Config", platform+"Server", "PalWorldSettings.ini"),
+		filepath.Join(sp, "..", "Saved", "Config", platform+"Server", "PalWorldSettings.ini"),
 		filepath.Join(sp, "Saved", "Config", platform+"Server", "PalWorldSettings.ini"),
+		filepath.Join(sp, "..", "Config", platform+"Server", "PalWorldSettings.ini"),
 	}
 	for _, p := range candidates {
 		if _, err := os.Stat(p); err == nil {
 			return p
 		}
 	}
-	// fallback: assume save.path is directly under Pal/Saved/
-	return filepath.Join(sp, "..", "..", "Config", platform+"Server", "PalWorldSettings.ini")
+	// fallback: try most common relative layout: sp/../Config/{platform}Server/PalWorldSettings.ini
+	return filepath.Join(sp, "..", "Config", platform+"Server", "PalWorldSettings.ini")
 }
 
 func ReadConfig() ([]ConfigEntry, string, error) {
@@ -234,12 +236,14 @@ func ScanConfigPaths() []string {
 		dir := sp
 		for i := 0; i < 10; i++ {
 			for _, platform := range []string{"Linux", "Windows"} {
-				candidate := filepath.Join(dir, "Saved", "Config", platform+"Server", "PalWorldSettings.ini")
-				candidate = filepath.Clean(candidate)
-				if !seen[candidate] {
-					seen[candidate] = true
-					if _, err := os.Stat(candidate); err == nil {
-						found = append(found, candidate)
+				for _, sub := range []string{"Saved", filepath.Join("..", "Saved"), ""} {
+					candidate := filepath.Join(dir, sub, "Config", platform+"Server", "PalWorldSettings.ini")
+					candidate = filepath.Clean(candidate)
+					if !seen[candidate] {
+						seen[candidate] = true
+						if _, err := os.Stat(candidate); err == nil {
+							found = append(found, candidate)
+						}
 					}
 				}
 			}
