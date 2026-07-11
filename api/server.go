@@ -6,6 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/zaigie/palworld-server-tool/internal/logger"
+	"github.com/zaigie/palworld-server-tool/internal/system"
 	"github.com/zaigie/palworld-server-tool/internal/tool"
 )
 
@@ -62,6 +63,24 @@ func getServerTool(c *gin.Context) {
 		}
 	}
 	c.JSON(http.StatusOK, gin.H{"version": version, "latest": latest})
+}
+
+// getServerResources godoc
+//
+//	@Summary		Get Server Resources
+//	@Description	Get CPU, memory, disk usage of the host
+//	@Tags			Server
+//	@Accept			json
+//	@Produce		json
+//	@Success		200	{object}	system.ResourceUsage
+//	@Router			/api/server/resources [get]
+func getServerResources(c *gin.Context) {
+	usage, err := system.GetResourceUsage()
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, usage)
 }
 
 // getServer godoc

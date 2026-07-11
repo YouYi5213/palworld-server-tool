@@ -68,6 +68,7 @@ func RegisterRouter(r *gin.Engine) {
 		anonymousGroup.GET("/server/tool", getServerTool)
 		anonymousGroup.GET("/server/metrics", getServerMetrics)
 		anonymousGroup.GET("/server/status", getServerStatus)
+		anonymousGroup.GET("/server/resources", getServerResources)
 		anonymousGroup.GET("/guild", listGuilds)
 		anonymousGroup.GET("/guild/:admin_player_uid", getGuild)
 	}

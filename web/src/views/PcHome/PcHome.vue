@@ -21,7 +21,7 @@ import {
 import { GuiManagement } from "@vicons/carbon";
 import { BroadcastTower } from "@vicons/fa";
 import { computed, onMounted, ref } from "vue";
-import { NTag, NButton, NIcon, useMessage, useDialog } from "naive-ui";
+import { NTag, NButton, NIcon, NDivider, useMessage, useDialog } from "naive-ui";
 import { useI18n } from "vue-i18n";
 import ApiService from "@/service/api";
 import pageStore from "@/stores/model/page.js";
@@ -52,6 +52,7 @@ const smallScreen = computed(() => pageWidth.value < 1024);
 const loading = ref(false);
 const serverInfo = ref({});
 const serverMetrics = ref({});
+const serverResources = ref({});
 const serverRunning = ref(false);
 const currentDisplay = ref("players");
 const playerList = ref([]);
@@ -123,6 +124,13 @@ const getServerToolInfo = async () => {
     hasNewVersion.value = isNewVersion(data.value?.version, data.value?.latest);
   }
 };
+const formatBytes = (bytes) => {
+  if (!bytes || bytes === 0) return "0 B";
+  const units = ["B", "KB", "MB", "GB", "TB"];
+  const i = Math.floor(Math.log(bytes) / Math.log(1024));
+  return (bytes / Math.pow(1024, i)).toFixed(1) + " " + units[i];
+};
+
 const isNewVersion = (version, latest) => {
   if (version == "Unknown" || version == "Develop" || latest == "") {
     return false;
@@ -147,6 +155,13 @@ const isNewVersion = (version, latest) => {
 const getServerInfo = async () => {
   const { data } = await new ApiService().getServerInfo();
   serverInfo.value = data.value;
+};
+
+const getServerResources = async () => {
+  const { data } = await new ApiService().getServerResources();
+  if (data.value) {
+    serverResources.value = data.value;
+  }
 };
 
 const getServerMetrics = async () => {
@@ -963,6 +978,7 @@ onMounted(async () => {
   getServerInfo();
   getServerMetrics();
   getServerStatus();
+  getServerResources();
   getServerToolInfo();
   getPlayerList();
   await getWhiteList();
@@ -975,6 +991,9 @@ onMounted(async () => {
   setInterval(async () => {
     await getServerStatus();
   }, 10000);
+  setInterval(async () => {
+    await getServerResources();
+  }, 30000);
   // 调试用
   // currentDisplay.value = "map";
   // playerToGuildStore().setUpdateStatus("map");
@@ -1014,17 +1033,18 @@ onMounted(async () => {
                 : $t("message.loading")
             }}</n-tag>
           </template>
-          <div>
+          <div style="min-width: 200px">
+            <p><strong>游戏</strong></p>
             <p>{{ $t("item.serverFps") }}: {{ serverMetrics?.server_fps }}</p>
             <p>{{ $t("item.serverUptime") }}: {{ serverMetrics?.uptime }}(s)</p>
             <p>{{ $t("item.serverDays") }}: {{ serverMetrics?.days }}</p>
-            <p>
-              {{ $t("item.serverFrameTime") }}:
-              {{ serverMetrics?.server_frame_time }}(ms)
-            </p>
-            <p>
-              {{ $t("item.maxPlayerNum") }}: {{ serverMetrics?.max_player_num }}
-            </p>
+            <p>{{ $t("item.serverFrameTime") }}: {{ serverMetrics?.server_frame_time }}(ms)</p>
+            <p>{{ $t("item.maxPlayerNum") }}: {{ serverMetrics?.max_player_num }}</p>
+            <n-divider style="margin: 8px 0" />
+            <p><strong>宿主机</strong></p>
+            <p>CPU: {{ serverResources?.cpu_percent?.toFixed(1) || "-" }}%</p>
+            <p>内存: {{ formatBytes(serverResources?.memory_used) }} / {{ formatBytes(serverResources?.memory_total) }} ({{ serverResources?.memory_percent?.toFixed(1) || "-" }}%)</p>
+            <p>磁盘: {{ formatBytes(serverResources?.disk_used) }} / {{ formatBytes(serverResources?.disk_total) }} ({{ serverResources?.disk_percent?.toFixed(1) || "-" }}%)</p>
           </div>
         </n-tooltip>
       </n-space>
