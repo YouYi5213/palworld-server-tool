@@ -812,6 +812,7 @@ const isTokenExpired = (token) => {
 const showServerConfig = ref(false);
 const backupModal = ref(false);
 const backupList = ref([]);
+const importFileInput = ref(null);
 
 const handleBackupList = () => {
   if (checkAuthToken()) {
@@ -932,6 +933,58 @@ const downloadBackup = async (item) => {
     }
     isDownloading.value = false;
   }
+};
+
+const handleExportSave = async () => {
+  if (!checkAuthToken()) {
+    message.error(t("message.requireauth"));
+    showLoginModal.value = true;
+    return;
+  }
+  isDownloading.value = true;
+  try {
+    const { data: blobData, execute: fetchBlob } = await new ApiService().exportSave();
+    await fetchBlob();
+    const url = URL.createObjectURL(blobData.value);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "save-export.zip");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    message.success("存档导出成功");
+  } catch (e) {
+    message.error("存档导出失败");
+  }
+  isDownloading.value = false;
+};
+
+const handleImportSaveClick = () => {
+  if (!checkAuthToken()) {
+    message.error(t("message.requireauth"));
+    showLoginModal.value = true;
+    return;
+  }
+  importFileInput.value?.click();
+};
+
+const handleImportSave = async (e) => {
+  const file = e.target.files?.[0];
+  if (!file) return;
+  isDownloading.value = true;
+  try {
+    const { statusCode } = await new ApiService().importSave(file);
+    if (statusCode.value === 200) {
+      message.success("存档导入成功！重启服务端后生效");
+    } else {
+      message.error("存档导入失败");
+    }
+  } catch (e) {
+    message.error("存档导入失败");
+  }
+  e.target.value = "";
+  isDownloading.value = false;
 };
 
 onMounted(async () => {
@@ -1732,6 +1785,15 @@ onMounted(async () => {
     :segmented="segmented"
   >
     <div>
+      <n-space class="mb-3">
+        <n-button type="primary" secondary @click="handleExportSave" :loading="isDownloading">
+          导出当前存档
+        </n-button>
+        <n-button type="warning" secondary @click="handleImportSaveClick">
+          导入存档
+        </n-button>
+        <input ref="importFileInput" type="file" accept=".zip" style="display:none" @change="handleImportSave" />
+      </n-space>
       <n-empty description="empty" v-if="backupList.length == 0"> </n-empty>
       <div class="flex flex-col item mlr-3 mb-3 p-1" v-else>
         <n-date-picker

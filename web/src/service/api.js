@@ -129,6 +129,14 @@ class ApiService extends Service {
   async downloadBackup(uuid) {
     return this.fetch(`/api/backup/${uuid}`).get().blob();
   }
+  async exportSave() {
+    return this.fetch(`/api/save/export`).get().blob();
+  }
+  async importSave(file) {
+    const form = new FormData();
+    form.append("file", file);
+    return this.fetch(`/api/save/import`).post(form);
+  }
 }
 
 export default ApiService;

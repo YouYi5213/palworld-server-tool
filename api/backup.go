@@ -10,6 +10,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/zaigie/palworld-server-tool/internal/database"
+	"github.com/zaigie/palworld-server-tool/internal/logger"
 	"github.com/zaigie/palworld-server-tool/internal/tool"
 	"github.com/zaigie/palworld-server-tool/service"
 )
@@ -134,5 +135,75 @@ func deleteBackup(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+	c.JSON(http.StatusOK, gin.H{"success": true})
+}
+
+// exportSave godoc
+//
+//	@Summary		Export Save
+//	@Description	Download the current save as a zip archive
+//	@Tags			Save
+//	@Accept			json
+//	@Produce		application/zip
+//	@Security		ApiKeyAuth
+//	@Success		200	{file}	"save.zip"
+//	@Failure		400	{object}	ErrorResponse
+//	@Router			/api/save/export [get]
+func exportSave(c *gin.Context) {
+	zipFile, err := tool.ExportSave()
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	c.Header("Content-Disposition", fmt.Sprintf("attachment; filename=%s", filepath.Base(zipFile)))
+	c.File(zipFile)
+	go func() {
+		time.Sleep(3 * time.Second)
+		os.Remove(zipFile)
+	}()
+}
+
+// importSave godoc
+//
+//	@Summary		Import Save
+//	@Description	Upload a save zip archive to replace the current save
+//	@Tags			Save
+//	@Accept			multipart/form-data
+//	@Produce		json
+//	@Security		ApiKeyAuth
+//	@Param			file	formData	file	true	"Save zip file"
+//	@Success		200		{object}	SuccessResponse
+//	@Failure		400		{object}	ErrorResponse
+//	@Router			/api/save/import [post]
+func importSave(c *gin.Context) {
+	file, _, err := c.Request.FormFile("file")
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid file"})
+		return
+	}
+	defer file.Close()
+
+	tmpDir := filepath.Join(os.TempDir(), "palworld-import-upload")
+	os.MkdirAll(tmpDir, 0755)
+	defer os.RemoveAll(tmpDir)
+
+	tmpFile := filepath.Join(tmpDir, "upload.zip")
+	out, err := os.Create(tmpFile)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	if _, err := out.ReadFrom(file); err != nil {
+		out.Close()
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	out.Close()
+
+	if err := tool.ImportSave(tmpFile); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	logger.Info("Save imported successfully\n")
 	c.JSON(http.StatusOK, gin.H{"success": true})
 }

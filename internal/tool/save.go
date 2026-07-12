@@ -20,6 +20,69 @@ import (
 	"go.etcd.io/bbolt"
 )
 
+func ExportSave() (string, error) {
+	sourcePath := viper.GetString("save.path")
+	levelFilePath, err := getFromSource(sourcePath, "export")
+	if err != nil {
+		return "", err
+	}
+	defer os.RemoveAll(filepath.Dir(levelFilePath))
+
+	exportDir := filepath.Join(os.TempDir(), "palworld-export")
+	os.MkdirAll(exportDir, 0755)
+	currentTime := time.Now().Format("2006-01-02-15-04-05")
+	zipFile := filepath.Join(exportDir, fmt.Sprintf("save-%s.zip", currentTime))
+
+	if err := system.ZipDir(filepath.Dir(levelFilePath), zipFile); err != nil {
+		return "", fmt.Errorf("failed to create export zip: %w", err)
+	}
+	return zipFile, nil
+}
+
+func ImportSave(zipPath string) error {
+	savePath := viper.GetString("save.path")
+	if savePath == "" {
+		return fmt.Errorf("save.path is not configured")
+	}
+	savDir, err := system.GetSavDir(savePath)
+	if err != nil {
+		return fmt.Errorf("failed to locate save directory: %w", err)
+	}
+	tmpDir := filepath.Join(os.TempDir(), "palworld-import-"+uuid.New().String())
+	defer os.RemoveAll(tmpDir)
+
+	if err := system.UnzipDir(zipPath, tmpDir); err != nil {
+		return fmt.Errorf("failed to unzip save file: %w", err)
+	}
+
+	hasLevel := false
+	filepath.Walk(tmpDir, func(path string, info os.FileInfo, err error) error {
+		if err == nil && info.Name() == "Level.sav" {
+			hasLevel = true
+		}
+		return nil
+	})
+	if !hasLevel {
+		return fmt.Errorf("uploaded archive does not contain Level.sav")
+	}
+
+	if _, err := Backup(); err != nil {
+		logger.Warnf("failed to backup before import: %v\n", err)
+	}
+
+	if err := os.RemoveAll(savDir); err != nil {
+		return fmt.Errorf("failed to clear save directory: %w", err)
+	}
+	os.MkdirAll(savDir, 0755)
+
+	if err := system.CopyDir(tmpDir, savDir); err != nil {
+		return fmt.Errorf("failed to copy imported save: %w", err)
+	}
+
+	logger.Info("Save imported successfully\n")
+	return nil
+}
+
 func ResetServerData() error {
 	_, err := Backup()
 	if err != nil {

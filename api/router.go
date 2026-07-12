@@ -113,5 +113,7 @@ func RegisterRouter(r *gin.Engine) {
 		authGroup.GET("/backup", listBackups)
 		authGroup.GET("/backup/:backup_id", downloadBackup)
 		authGroup.DELETE("/backup/:backup_id", deleteBackup)
+		authGroup.GET("/save/export", exportSave)
+		authGroup.POST("/save/import", importSave)
 	}
 }
