@@ -10,6 +10,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/google/uuid"
 	"github.com/spf13/viper"
 	"github.com/zaigie/palworld-server-tool/internal/auth"
 	"github.com/zaigie/palworld-server-tool/internal/database"
@@ -137,10 +138,40 @@ func getSavCli() (string, error) {
 	return savCliPath, nil
 }
 
-func Decode(file string) error {
-	savCli, err := getSavCli()
+func getPythonScriptPath() (string, error) {
+	ed, err := system.GetExecDir()
 	if err != nil {
-		return errors.New("error getting executable path: " + err.Error())
+		return "", err
+	}
+	// Check module/sav_cli.py next to executable
+	scriptPath := filepath.Join(ed, "module", "sav_cli.py")
+	if _, err := os.Stat(scriptPath); err == nil {
+		return scriptPath, nil
+	}
+	// Check in current working directory
+	cwd, err := os.Getwd()
+	if err != nil {
+		return "", err
+	}
+	scriptPath = filepath.Join(cwd, "module", "sav_cli.py")
+	if _, err := os.Stat(scriptPath); err == nil {
+		return scriptPath, nil
+	}
+	return "", fmt.Errorf("module/sav_cli.py not found")
+}
+
+func Decode(file string) error {
+	python, err := exec.LookPath("python3")
+	if err != nil {
+		python, err = exec.LookPath("python")
+		if err != nil {
+			return errors.New("python not found in PATH")
+		}
+	}
+
+	scriptPath, err := getPythonScriptPath()
+	if err != nil {
+		return errors.New("error finding sav_cli.py: " + err.Error())
 	}
 
 	levelFilePath, err := getFromSource(file, "decode")
@@ -159,8 +190,8 @@ func Decode(file string) error {
 	if err != nil {
 		return errors.New("error generating token: " + err.Error())
 	}
-	execArgs := []string{"-f", levelFilePath, "--request", requestUrl, "--token", tokenString}
-	cmd := exec.Command(savCli, execArgs...)
+	execArgs := []string{scriptPath, "-f", levelFilePath, "--request", requestUrl, "--token", tokenString}
+	cmd := exec.Command(python, execArgs...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	err = cmd.Start()
@@ -169,7 +200,7 @@ func Decode(file string) error {
 	}
 	err = cmd.Wait()
 	if err != nil {
-		return errors.New("error waiting for command: " + err.Error())
+		return errors.New("error during save parsing: " + err.Error())
 	}
 
 	return nil

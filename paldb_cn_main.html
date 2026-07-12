@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="cn" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Palworld Database Wiki</title>
+    <meta name="color-scheme" content="dark">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon" >
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" crossorigin="anonymous"/>
+    <!--<link rel="stylesheet" href="https://cdn.paldb.cc/css/dataTables.bootstrap5.min.css" />-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.16/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modal-video@2.4.6/css/modal-video.min.css" integrity="sha256-nd8IBqNn9uqwZKfZcLIXQcNxk5TjqrxiLx7PzN5PFW0=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/stdtheme.css?1783859662
+"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.bundle.min.js" integrity="sha512-ToL6UYWePxjhDQKNioSi4AyJ5KkRxY+F1+Fi7Jgh0Hp5Kk2/s8FD7zusJDdonfe5B00Qw+B8taXxF6CFLnqNCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.paldb.cc/js/dataTables.bootstrap5.js?3"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js" integrity="sha512-lteuRD+aUENrZPTXWFRPTBcDDxIGWe5uu0apPEn+3ZKYDwDaEErIK9rvR0QzUGmUQ55KFE2RqGTVoZsKctGMVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/@popperjs/core@2" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/tippy.js@6" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.16/sweetalert2.all.min.js" integrity="sha512-4tvE14sHIcdIHl/dUdMHp733PI6MpYA7BDnDfndQmx7aIovEkW+LfkonVO9+NPWP1jYzmrqXJMIT2tECv1TsEQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--<script src="https://unpkg.com/mustache@latest" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/modal-video@2.4.6/js/modal-video.min.js" integrity="sha256-VqINwNxkS4VEDMq5O52YTckX+Mx84X6bafO8NxF21Xw=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.3.1/tinymce.min.js" integrity="sha512-eV68QXP3t5Jbsf18jfqT8xclEJSGvSK5uClUuqayUbF5IRK8e2/VSXIFHzEoBnNcvLBkHngnnd3CY7AFpUhF7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" integrity="sha512-Ixzuzfxv1EqafeQlTCufWfaC6ful6WFqIz4G+dWvK0beHw0NVJwvCKSgafpy5gwNqKmgUfIBraVwkKI+Cz0SEQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/js/header.js?1783859662
+"></script>
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2Z1WF1TB29"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2Z1WF1TB29');
+</script>
+
+<script data-cfasync="false">window.nitroAds=window.nitroAds||{createAd:function(){return new Promise(e=>{window.nitroAds.queue.push(["createAd",arguments,e])})},addUserToken:function(){window.nitroAds.queue.push(["addUserToken",arguments])},queue:[]};</script>
+<script data-cfasync="false" async src="https://s.nitropay.com/ads-1818.js"></script>
+  </head>
+  <body>
+
+    <div id="consent-box" style="display:none">
+      <button onclick="window.__cmp('showModal');">
+        Update cookie preferences
+      </button>
+    </div>
+    
+    <script>
+      if (window["nitroAds"] && window["nitroAds"].loaded) {
+        document.getElementById("consent-box").style.display = window["__tcfapi"]
+          ? ""
+          : "none";
+      } else {
+        document.addEventListener(
+          "nitroAds.loaded",
+          () =>
+            (document.getElementById("consent-box").style.display = window["__tcfapi"]
+              ? ""
+              : "none")
+        );
+      }
+    </script>
+
+    <div class="background-image"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/cn/" data-i18n-tw="帕魯編年史">Paldb.cc</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n-tw="工具">
+                Tools
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/cn/Palpagos_Islands" data-i18n="worldmap_name_mainmap">Palpagos Islands</a></li>
+                <li><a class="dropdown-item" href="/cn/The_World_Tree" data-i18n="worldmap_name_tree">The World Tree</a></li>
+                <li><a class="dropdown-item" href="/cn/Breed" data-i18n-tw="配種計算">Breeding Calculator</a></li>
+                <li><a class="dropdown-item" href="/cn/Iv_Calc" data-i18n-tw="個體值計算">IV Calculator</a></li>
+                <li><a class="dropdown-item" href="/cn/Pal_Calc" data-i18n-tw="帕魯計算">Pal Calculator</a></li>
+                <li><a class="dropdown-item" href="/cn/Capture_Rate" data-i18n="capture_reticle_capture_rate">Capture Rate</a></li>
+              </ul>
+            </li>
+    
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="category_type_a_pal">
+                Pal
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/cn/Pals" data-i18n="category_type_a_pal">Pal</a></li>
+                <li><a class="dropdown-item" href="/cn/Alpha_Pals" data-i18n="pal_box_sorttype_boss_flag">Alpha Pals</a></li>
+                <li><a class="dropdown-item" href="/cn/Rampaging" data-i18n="predator_name">Rampaging</a></li>
+                <li><a class="dropdown-item" href="/cn/Tower" data-i18n="map_filter_bosstower">Tower</a></li>
+                <li><a class="dropdown-item" href="/cn/Raid" data-i18n="warning_invader_start_title">Raid</a></li>
+                <li><a class="dropdown-item" href="/cn/Humans" data-i18n-tw="人類">Humans</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/cn/Element_Swap" data-i18n-tw="攻擊賦予屬性">Element Swap</a></li>
+                <li><a class="dropdown-item" href="/cn/Weight_Increase" data-i18n-tw="負重增加">Weight Increase</a></li>
+                <li><a class="dropdown-item" href="/cn/Mounts" data-i18n-tw="坐騎">Mounts</a></li>
+                <li><a class="dropdown-item" href="/cn/Glider" data-i18n="common_itemtype_a_glider">Glider</a></li>
+                <li><a class="dropdown-item" href="/cn/Drop_Rate" data-i18n-tw="掉落倍率">Drop Rate</a></li>
+                <li><a class="dropdown-item" href="/cn/Party_Buffs" data-i18n-tw="隊伍增益">Party Buffs</a></li>
+                <li><a class="dropdown-item" href="/cn/Pal_Stats" data-i18n-tw="帕魯屬性">Pal Stats</a></li>
+                <li><a class="dropdown-item" href="/cn/Spoiler">Spoiler</a></li>
+              </ul>
+            </li>
+    
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="common_work_suitability">
+                Work Suitability
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/cn/Kindling"><img alt="T_icon_palwork_00" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_00.webp" height="24" /><span data-i18n="common_work_suitability_emitflame">Kindling</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Watering"><img alt="T_icon_palwork_01" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_01.webp" height="24" /><span data-i18n="common_work_suitability_watering">Watering</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Planting"><img alt="T_icon_palwork_02" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_02.webp" height="24" /><span data-i18n="common_work_suitability_seeding">Planting</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Generating_Electricity"><img alt="T_icon_palwork_03" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_03.webp" height="24"/><span data-i18n="common_work_suitability_generateelectricity">Generating Electricity</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Handiwork"><img alt="T_icon_palwork_04" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_04.webp" height="24" /><span data-i18n="common_work_suitability_handcraft">Handiwork</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Gathering"><img alt="T_icon_palwork_05" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_05.webp" height="24" /><span data-i18n="common_work_suitability_collection">Gathering</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Lumbering"><img alt="T_icon_palwork_06" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_06.webp" height="24" /><span data-i18n="common_work_suitability_deforest">Lumbering</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Mining"><img alt="T_icon_palwork_07" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_07.webp" height="24" /><span data-i18n="common_work_suitability_mining">Mining</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Medicine_Production"><img alt="T_icon_palwork_08" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_08.webp" height="24" /><span data-i18n="common_work_suitability_productmedicine">Medicine Production</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Cooling"><img alt="T_icon_palwork_10" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_10.webp" height="24"/><span data-i18n="common_work_suitability_cool">Cooling</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Transporting"><img alt="T_icon_palwork_11" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_11.webp" height="24" /><span data-i18n="common_work_suitability_transport">Transporting</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Farming"><img alt="T_icon_palwork_12" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_12.webp" height="24" /><span data-i18n="common_work_suitability_monsterfarm">Farming</span></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/cn/Work_Priority" data-i18n="common_work_suitability">Work Priority</a></li>
+                <li><a class="dropdown-item" href="/cn/SAN">SAN</a></li>
+              </ul>
+            </li>
+    
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n-tw="技能">
+                Skills
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/cn/Partner_Skill" data-i18n="common_coop_action">Partner Skill</a></li>
+                <li><a class="dropdown-item" href="/cn/Active_Skills" data-i18n="common_active_skill">Active Skills</a></li>
+                <li><a class="dropdown-item" href="/cn/Passive_Skills" data-i18n="common_characteristic">Passive Skills</a></li>
+                <li><a class="dropdown-item" href="/cn/Skill_Fruit" data-i18n-tw="技能果實">Skill Fruit</a></li>
+              </ul>
+            </li>
+    
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="ingame_main_menu_inventory">
+                Inventory
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/cn/Weapon" data-i18n="common_itemtype_a_weapon">Weapon</a></li>
+                <li><a class="dropdown-item" href="/cn/Sphere" data-i18n="common_itemtype_a_specialweapon">Sphere</a></li>
+                <li><a class="dropdown-item" href="/cn/Sphere_Module" data-i18n="common_itemtype_a_captureitemmodifier">Sphere Module</a></li>
+                <li><a class="dropdown-item" href="/cn/Armor" data-i18n="common_itemtype_a_armor">Armor</a></li>
+                <li><a class="dropdown-item" href="/cn/Accessory" data-i18n="common_itemtype_a_accessory">Accessory</a></li>
+                <li><a class="dropdown-item" href="/cn/Material" data-i18n="common_itemtype_a_material">Material</a></li>
+                <li><a class="dropdown-item" href="/cn/Consumable" data-i18n="common_itemtype_a_consume">Consumable</a></li>
+                <li><a class="dropdown-item" href="/cn/Ammo" data-i18n="common_itemtype_a_ammo">Ammo</a></li>
+                <li><a class="dropdown-item" href="/cn/Ingredient" data-i18n="common_itemtype_a_food">Ingredient</a></li>
+                <li><a class="dropdown-item" href="/cn/Key_Items" data-i18n="common_itemtype_a_essential">Key Items</a></li>
+                <li><a class="dropdown-item" href="/cn/Glider" data-i18n="common_itemtype_a_glider">Glider</a></li>
+                <li><a class="dropdown-item" href="/cn/Schematic" data-i18n="common_itemtype_a_blueprint">Schematic</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/cn/Chest_filters" data-i18n-tw="箱子篩選">Chest filters</a></li>
+                <li><a class="dropdown-item" href="/cn/Legendary" data-i18n="rarity_legendary">Legendary</a></li>
+              </ul>
+            </li>
+    
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="common_work_type_architecture">
+                Construction
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/cn/Production"><img alt="T_icon_construction_tab_00" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_00.webp" height="24"/><span data-i18n="category_type_a_product">Production</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Pal"><img alt="T_icon_construction_tab_01" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_01.webp" height="24"/><span data-i18n="category_type_a_pal">Pal</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Storage"><img alt="T_icon_construction_tab_02" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_02.webp" height="24"/><span data-i18n="category_type_a_storage">Storage</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Food"><img alt="T_icon_construction_tab_03" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_03.webp" height="24"/><span data-i18n="category_type_a_food">Food</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Infrastructure"><img alt="T_icon_construction_tab_04" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_04.webp" height="24"/><span data-i18n="category_type_a_infrastructure">Infrastructure</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Lighting"><img alt="T_icon_construction_tab_05" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_05.webp" height="24"/><span data-i18n="category_type_a_light">Lighting</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Foundations"><img alt="T_icon_construction_tab_06" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_06.webp" height="24"/><span data-i18n="category_type_a_foundation">Foundations</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Defenses"><img alt="T_icon_construction_tab_07" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_07.webp" height="24"/><span data-i18n="category_type_a_defense">Defenses</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Furniture"><img alt="T_icon_construction_tab_09" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_09.webp" height="24"/><span data-i18n="category_type_a_furniture">Furniture</span></a></li>
+                <li><a class="dropdown-item" href="/cn/Other"><img alt="T_icon_construction_tab_08" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_08.webp" height="24"/><span data-i18n="category_type_a_other">Other</span></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/cn/Breeding_Farm" data-i18n="mapobject_name_breedfarm">Breeding Farm</a></li>
+                <li><a class="dropdown-item" href="/cn/Pal_Expedition_Station" data-i18n="mapobject_name_expedition">Pal Expedition Station</a></li>
+                <li><a class="dropdown-item" href="/cn/Fishing_Pond" data-i18n="mapobject_name_fishingpond1">Fishing Pond</a></li>
+              </ul>
+            </li>
+    
+    
+    
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="category_type_a_other">
+                Other
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/cn/Technologies" data-i18n="ingame_main_menu_technology">Technologies</a></li>
+                <li><a class="dropdown-item" href="/cn/Merchant" data-i18n="name_selesperson">Merchant</a></li>
+                <li><a class="dropdown-item" href="/cn/Black_Marketeer" data-i18n="name_darktrader">Black Marketeer</a></li>
+                <li><a class="dropdown-item" href="/cn/Treasure_Box" data-i18n-tw="寶箱">Treasure Box</a></li>
+                <li><a class="dropdown-item" href="/cn/Arrogant_Pal_Critic" data-i18n="name_reward_paldisplay">Arrogant Pal Critic</a></li>
+                <li><a class="dropdown-item" href="/cn/Arrogant_Foodie" data-i18n="name_reward_food">Arrogant Foodie</a></li>
+                <li><a class="dropdown-item" href="/cn/Journals" data-i18n="note_title">Memo</a></li>
+                <li><a class="dropdown-item" href="/cn/Tips" data-i18n="helpguide_title">Tips</a></li>
+                <li><a class="dropdown-item" href="/cn/Base" data-i18n="map_filter_camp">Base</a></li>
+                <li><a class="dropdown-item" href="/cn/Mission" data-i18n="ingame_mainmenu_quest">Mission</a></li>
+                <li><a class="dropdown-item" href="/cn/Dungeons" data-i18n-tw="地下城">Dungeons</a></li>
+                <li><a class="dropdown-item" href="/cn/Eggs" data-i18n-tw="帕魯蛋">Eggs</a></li>
+                <li><a class="dropdown-item" href="/cn/Caged" data-i18n-tw="籠子">Caged</a></li>
+                <li><a class="dropdown-item" href="/cn/Enemy_Camp" data-i18n-tw="敵人據點">Enemy Camp</a></li>
+                <li><a class="dropdown-item" href="/cn/Arena" data-i18n="region_arena">Arena</a></li>
+                <li><a class="dropdown-item" href="/cn/Bounty" data-i18n-tw="懸賞">Bounty</a></li>
+                <li><a class="dropdown-item" href="/cn/Fishing" data-i18n="common_work_type_fishpond">Fishing</a></li>
+                <li><a class="dropdown-item" href="/cn/Incidents" data-i18n="">Incidents</a></li>
+                <li><a class="dropdown-item" href="/cn/Ancient_Ruin" data-i18n="">Ancient Ruin</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/cn/Mods" data-i18n-tw="模組安裝">Mods Install</a></li>
+              </ul>
+            </li>
+    
+          </ul>
+    
+          <ul class="navbar-nav language-selector">
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-language fa-lg"></i></a>
+              <ul class="dropdown-menu language-menu">
+                <li><a class='dropdown-item' href='/en/'>EN English</a></li>
+                <li><a class='dropdown-item' href='/tw/'>TW 繁體中文</a></li>
+                <li><a class='dropdown-item' href='/ko/'>KO 한국어</a></li>
+                <li><a class='dropdown-item' href='/cn/'>CN 简体中文</a></li>
+                <li><a class='dropdown-item' href='/ja/'>JA Japanese</a></li>
+                <li><a class='dropdown-item' href='/es/'>ES Spanish</a></li>
+                <li><a class='dropdown-item' href='/de/'>DE Deutsch</a></li>
+                <li><a class='dropdown-item' href='/fr/'>FR Français</a></li>
+                <li><a class='dropdown-item' href='/it/'>IT Italian</a></li>
+                <li><a class='dropdown-item' href='/pt/'>PT Português</a></li>
+                <li><a class='dropdown-item' href='/ru/'>RU Русский</a></li>
+                <li><a class="dropdown-item" href="/th/">TH ภาษาไทย</a></li>
+                <li><a class="dropdown-item" href="/id/">ID Indonesian</a></li>
+                <li><a class="dropdown-item" href="/pl/">PL Polish</a></li>
+                <li><a class="dropdown-item" href="/tr/">TR Turkish</a></li>
+                <li><a class="dropdown-item" href="/vi/">VI Vietnamese</a></li>
+                <li><a class="dropdown-item" href="/mx/">MX Spanish</a></li>
+              </ul>
+            </li>
+          </ul>
+    
+          <form class="d-flex" role="search" id="autocomplete">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="navautosearch">
+          </form>
+    
+        </div>
+      </div>
+    </nav>
+
+<script> sidebar160('leftside_banner', 'left'); </script>
+<script> sidebar160('rightside_banner', 'right'); </script>
+
+    <div class="page">
+    <div class="page-content container" role="main">
+        <div id="topbanner970"></div><script>topbanner970("topbanner970");</script>
+
+    <div class="row g-2"><div class="col-lg-3"><div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title text-info" data-i18n-tw="工具">Tools</h5>
+        <ul class="leftMenu">
+            <li><a class="dropdown-item" href="/cn/Palpagos_Islands" data-i18n="worldmap_name_mainmap">Palpagos Islands</a></li>
+            <li><a class="dropdown-item" href="/cn/The_World_Tree" data-i18n="worldmap_name_tree">The World Tree</a></li>
+            <li><a class="dropdown-item" href="/cn/Breed" data-i18n-tw="配種計算">Breeding Calculator</a></li>
+            <!--<li><a class="dropdown-item" href="/cn/BreedEoC" data-i18n-tw="配種計算 +克蘇魯之眼">Breeding Calc +Eye of Cthulhu</a></li>-->
+            <li><a class="dropdown-item" href="/cn/Iv_Calc" data-i18n-tw="個體值計算">IV Calculator</a></li>
+            <li><a class="dropdown-item" href="/cn/Pal_Calc" data-i18n-tw="帕魯計算">Pal Calculator</a></li>
+            <li><a class="dropdown-item" href="/cn/Capture_Rate" data-i18n="capture_reticle_capture_rate">Capture Rate</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title text-info" data-i18n="category_type_a_pal">Pal</h5>
+        <ul class="leftMenu">
+            <li><a class="dropdown-item" href="/cn/Pals" data-i18n="category_type_a_pal">Pal</a></li>
+            <li><a class="dropdown-item" href="/cn/Alpha_Pals" data-i18n="pal_box_sorttype_boss_flag">Alpha Pals</a></li>
+            <li><a class="dropdown-item" href="/cn/Rampaging" data-i18n="predator_name">Rampaging</a></li>
+            <li><a class="dropdown-item" href="/cn/Tower" data-i18n="map_filter_bosstower">Tower</a></li>
+            <li><a class="dropdown-item" href="/cn/Raid" data-i18n="warning_invader_start_title">Raid</a></li>
+            <li><a class="dropdown-item" href="/cn/Humans" data-i18n-tw="人類">Humans</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/cn/Element_Swap" data-i18n-tw="攻擊賦予屬性">Element Swap</a></li>
+            <li><a class="dropdown-item" href="/cn/Weight_Increase" data-i18n-tw="負重增加">Weight Increase</a></li>
+            <li><a class="dropdown-item" href="/cn/Mounts" data-i18n-tw="坐騎">Mounts</a></li>
+            <li><a class="dropdown-item" href="/cn/Glider" data-i18n="common_itemtype_a_glider">Glider</a></li>
+            <li><a class="dropdown-item" href="/cn/Drop_Rate" data-i18n-tw="掉落倍率">Drop Rate</a></li>
+            <li><a class="dropdown-item" href="/cn/Party_Buffs" data-i18n-tw="隊伍增益">Party Buffs</a></li>
+            <li><a class="dropdown-item" href="/cn/Pal_Stats" data-i18n-tw="帕魯屬性">Pal Stats</a></li>
+            <li><a class="dropdown-item" href="/cn/Spoiler">Spoiler</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title text-info" data-i18n="common_work_suitability">Work Suitability</h5>
+        <ul class="leftMenu">
+            <li><a class="dropdown-item" href="/cn/Kindling"><img alt="T_icon_palwork_00" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_00.webp" height="24" /><span data-i18n="common_work_suitability_emitflame">Kindling</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Watering"><img alt="T_icon_palwork_01" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_01.webp" height="24" /><span data-i18n="common_work_suitability_watering">Watering</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Planting"><img alt="T_icon_palwork_02" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_02.webp" height="24" /><span data-i18n="common_work_suitability_seeding">Planting</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Generating_Electricity"><img alt="T_icon_palwork_03" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_03.webp" height="24"/><span data-i18n="common_work_suitability_generateelectricity">Generating Electricity</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Handiwork"><img alt="T_icon_palwork_04" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_04.webp" height="24" /><span data-i18n="common_work_suitability_handcraft">Handiwork</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Gathering"><img alt="T_icon_palwork_05" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_05.webp" height="24" /><span data-i18n="common_work_suitability_collection">Gathering</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Lumbering"><img alt="T_icon_palwork_06" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_06.webp" height="24" /><span data-i18n="common_work_suitability_deforest">Lumbering</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Mining"><img alt="T_icon_palwork_07" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_07.webp" height="24" /><span data-i18n="common_work_suitability_mining">Mining</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Medicine_Production"><img alt="T_icon_palwork_08" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_08.webp" height="24" /><span data-i18n="common_work_suitability_productmedicine">Medicine Production</span></a></li>
+            <!--<li><a class="dropdown-item" href="/cn/Crude_oil_extraction"><img alt="T_icon_palwork_09" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_09.webp" height="24" /><span data-i18n="common_work_suitability_oilextraction">Crude oil extraction</span></a></li>-->
+            <li><a class="dropdown-item" href="/cn/Cooling"><img alt="T_icon_palwork_10" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_10.webp" height="24"/><span data-i18n="common_work_suitability_cool">Cooling</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Transporting"><img alt="T_icon_palwork_11" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_11.webp" height="24" /><span data-i18n="common_work_suitability_transport">Transporting</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Farming"><img alt="T_icon_palwork_12" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_palwork_12.webp" height="24" /><span data-i18n="common_work_suitability_monsterfarm">Farming</span></a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/cn/Work_Priority" data-i18n="common_work_suitability">Work Priority</a></li>
+            <li><a class="dropdown-item" href="/cn/SAN">SAN</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title text-info" data-i18n-tw="技能">Skills</h5>
+        <ul class="leftMenu">
+            <li><a class="dropdown-item" href="/cn/Partner_Skill" data-i18n="common_coop_action">Partner Skill</a></li>
+            <li><a class="dropdown-item" href="/cn/Active_Skills" data-i18n="common_active_skill">Active Skills</a></li>
+            <li><a class="dropdown-item" href="/cn/Passive_Skills" data-i18n="common_characteristic">Passive Skills</a></li>
+            <li><a class="dropdown-item" href="/cn/Skill_Fruit" data-i18n-tw="技能果實">Skill Fruit</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title text-info" data-i18n="ingame_main_menu_inventory">Inventory</h5>
+        <ul class="leftMenu">
+            <li><a class="dropdown-item" href="/cn/Weapon" data-i18n="common_itemtype_a_weapon">Weapon</a></li>
+            <li><a class="dropdown-item" href="/cn/Sphere" data-i18n="common_itemtype_a_specialweapon">Sphere</a></li>
+            <li><a class="dropdown-item" href="/cn/Sphere_Module" data-i18n="common_itemtype_a_captureitemmodifier">Sphere Module</a></li>
+            <li><a class="dropdown-item" href="/cn/Armor" data-i18n="common_itemtype_a_armor">Armor</a></li>
+            <li><a class="dropdown-item" href="/cn/Accessory" data-i18n="common_itemtype_a_accessory">Accessory</a></li>
+            <li><a class="dropdown-item" href="/cn/Material" data-i18n="common_itemtype_a_material">Material</a></li>
+            <li><a class="dropdown-item" href="/cn/Consumable" data-i18n="common_itemtype_a_consume">Consumable</a></li>
+            <li><a class="dropdown-item" href="/cn/Ammo" data-i18n="common_itemtype_a_ammo">Ammo</a></li>
+            <li><a class="dropdown-item" href="/cn/Ingredient" data-i18n="common_itemtype_a_food">Ingredient</a></li>
+            <li><a class="dropdown-item" href="/cn/Key_Items" data-i18n="common_itemtype_a_essential">Key Items</a></li>
+            <li><a class="dropdown-item" href="/cn/Glider" data-i18n="common_itemtype_a_glider">Glider</a></li>
+            <li><a class="dropdown-item" href="/cn/Schematic" data-i18n="common_itemtype_a_blueprint">Schematic</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/cn/Chest_filters" data-i18n-tw="箱子篩選">Chest filters</a></li>
+            <li><a class="dropdown-item" href="/cn/Legendary" data-i18n="rarity_legendary">Legendary</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title text-info" data-i18n="common_work_type_architecture">Construction</h5>
+        <ul class="leftMenu">
+            <li><a class="dropdown-item" href="/cn/Production"><img alt="T_icon_construction_tab_00" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_00.webp" height="24"/><span data-i18n="category_type_a_product">Production</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Pal"><img alt="T_icon_construction_tab_01" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_01.webp" height="24"/><span data-i18n="category_type_a_pal">Pal</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Storage"><img alt="T_icon_construction_tab_02" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_02.webp" height="24"/><span data-i18n="category_type_a_storage">Storage</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Food"><img alt="T_icon_construction_tab_03" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_03.webp" height="24"/><span data-i18n="category_type_a_food">Food</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Infrastructure"><img alt="T_icon_construction_tab_04" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_04.webp" height="24"/><span data-i18n="category_type_a_infrastructure">Infrastructure</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Lighting"><img alt="T_icon_construction_tab_05" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_05.webp" height="24"/><span data-i18n="category_type_a_light">Lighting</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Foundations"><img alt="T_icon_construction_tab_06" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_06.webp" height="24"/><span data-i18n="category_type_a_foundation">Foundations</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Defenses"><img alt="T_icon_construction_tab_07" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_07.webp" height="24"/><span data-i18n="category_type_a_defense">Defenses</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Furniture"><img alt="T_icon_construction_tab_09" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_09.webp" height="24"/><span data-i18n="category_type_a_furniture">Furniture</span></a></li>
+            <li><a class="dropdown-item" href="/cn/Other"><img alt="T_icon_construction_tab_08" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_08.webp" height="24"/><span data-i18n="category_type_a_other">Other</span></a></li>
+            <!--
+            <li><a class="dropdown-item" href="/cn/Schematics"><img alt="T_icon_construction_tab_10" src="https://cdn.paldb.cc/image/Pal/Texture/UI/InGame/T_icon_construction_tab_10.webp" height="24"/><span data-i18n="category_type_a_blueprint">Schematics</span></a></li>
+            -->
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/cn/Breeding_Farm" data-i18n="mapobject_name_breedfarm">Breeding Farm</a></li>
+            <li><a class="dropdown-item" href="/cn/Pal_Expedition_Station" data-i18n="mapobject_name_expedition">Pal Expedition Station</a></li>
+            <li><a class="dropdown-item" href="/cn/Fishing_Pond" data-i18n="mapobject_name_fishingpond1">Fishing Pond</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title text-info" data-i18n="category_type_a_other">Other</h5>
+        <ul class="leftMenu">
+            <li><a class="dropdown-item" href="/cn/Technologies" data-i18n="ingame_main_menu_technology">Technologies</a></li>
+            <li><a class="dropdown-item" href="/cn/Merchant" data-i18n="name_selesperson">Merchant</a></li>
+            <li><a class="dropdown-item" href="/cn/Black_Marketeer" data-i18n="name_darktrader">Black Marketeer</a></li>
+            <li><a class="dropdown-item" href="/cn/Treasure_Box" data-i18n-tw="寶箱">Treasure Box</a></li>
+            <li><a class="dropdown-item" href="/cn/Arrogant_Pal_Critic" data-i18n="name_reward_paldisplay">Arrogant Pal Critic</a></li>
+            <li><a class="dropdown-item" href="/cn/Arrogant_Foodie" data-i18n="name_reward_food">Arrogant Foodie</a></li>
+            <li><a class="dropdown-item" href="/cn/Journals" data-i18n="note_title">Memo</a></li>
+            <li><a class="dropdown-item" href="/cn/Tips" data-i18n="helpguide_title">Tips</a></li>
+            <li><a class="dropdown-item" href="/cn/Base" data-i18n="map_filter_camp">Base</a></li>
+            <li><a class="dropdown-item" href="/cn/Mission" data-i18n="ingame_mainmenu_quest">Mission</a></li>
+            <li><a class="dropdown-item" href="/cn/Dungeons" data-i18n-tw="地下城">Dungeons</a></li>
+            <li><a class="dropdown-item" href="/cn/Eggs" data-i18n-tw="帕魯蛋">Eggs</a></li>
+            <li><a class="dropdown-item" href="/cn/Caged" data-i18n-tw="籠子">Caged</a></li>
+            <li><a class="dropdown-item" href="/cn/Enemy_Camp" data-i18n-tw="敵人據點">Enemy Camp</a></li>
+            <li><a class="dropdown-item" href="/cn/Arena" data-i18n="region_arena">Arena</a></li>
+            <li><a class="dropdown-item" href="/cn/Bounty" data-i18n-tw="懸賞">Bounty</a></li>
+            <li><a class="dropdown-item" href="/cn/Fishing" data-i18n="common_work_type_fishpond">Fishing</a></li>
+            <li><a class="dropdown-item" href="/cn/Incidents" data-i18n="">Incidents</a></li>
+            <li><a class="dropdown-item" href="/cn/Ancient_Ruin" data-i18n="">Ancient Ruin</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/cn/Mods" data-i18n-tw="模組安裝">Mods Install</a></li>
+            <!--
+            <li><a class="dropdown-item" href="/cn/Pals_Table">Pals Table</a></li>
+            <li><a class="dropdown-item" href="/cn/NPCs_Table">NPCs Table</a></li>
+            <li><a class="dropdown-item" href="/cn/Items_Table">Items Table</a></li>
+            <li><a class="dropdown-item" href="/cn/ActiveSkills_Table">ActiveSkills Table</a></li>
+            <li><a class="dropdown-item" href="/cn/PassiveSkills_Table">PassiveSkills Table</a></li>
+            -->
+            <!--<li><a class="dropdown-item" href="/cn/Roadmap" data-i18n-tw="更新計畫">Roadmap</a></li>-->
+        </ul>
+    </div>
+</div>
+
+<!--
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title text-info">Language</h5>
+        <ul class="leftMenu">
+            <li><a class='dropdown-item' href='/en/'>EN English</a></li>
+            <li><a class='dropdown-item' href='/tw/'>TW 繁體中文</a></li>
+            <li><a class='dropdown-item' href='/ko/'>KO 한국어</a></li>
+            <li><a class='dropdown-item' href='/cn/'>CN 简体中文</a></li>
+            <li><a class='dropdown-item' href='/ja/'>JA Japanese</a></li>
+            <li><a class='dropdown-item' href='/es/'>ES Spanish</a></li>
+            <li><a class='dropdown-item' href='/de/'>DE Deutsch</a></li>
+            <li><a class='dropdown-item' href='/fr/'>FR Français</a></li>
+            <li><a class='dropdown-item' href='/it/'>IT Italian</a></li>
+            <li><a class='dropdown-item' href='/pt/'>PT Português</a></li>
+            <li><a class='dropdown-item' href='/ru/'>RU Русский</a></li>
+            <li><a class="dropdown-item" href="/th/">TH ภาษาไทย</a></li>
+            <li><a class="dropdown-item" href="/id/">ID Indonesian</a></li>
+            <li><a class="dropdown-item" href="/pl/">PL Polish</a></li>
+            <li><a class="dropdown-item" href="/tr/">TR Turkish</a></li>
+            <li><a class="dropdown-item" href="/vi/">VI Vietnamese</a></li>
+            <li><a class="dropdown-item" href="/mx/">MX Spanish</a></li>
+        </ul>
+    </div>
+</div>
+-->
+
+</div><div class="col-lg-9"><div class="card mt-3 mb-2">
+    <div class="card-body">
+        <h5 class="card-title text-info">Hots</h5>
+        <div class="itemList">
+            <ul>
+                <li><a href="Caravan_Merchant" data-i18n-tw="旅行商隊">Caravan Merchant</a></li>
+                <li><a href="Pal_Effigy" data-i18n-tw="帕魯雕像">Pal Effigy</a></li>
+                <li><a href="Mutation" data-i18n-tw="突變">Mutation</a></li>
+                <li><a href="Awakening" data-i18n-tw="覺醒">Awakening</a></li>
+                <li><a href="Ancient_Ruin" data-i18n-tw="古代遺跡">Ancient Ruin</a></li>
+                <li><a href="Palpagos_Islands?filters=Watchtower" data-i18n-tw="瞭望塔">Watchtower</a></li>
+                <li><a href="Disposable_Implant" data-i18n-tw="耗材植入體">Disposable Implant</a></li>
+                <li><a href="Multiclimate_Undershirt_Schematic" data-i18n-tw="耐熱防寒內衣設計圖">Multiclimate Undershirt Schematic</a></li>
+                <li><a href="Palpagos_Islands?filters=Ancient+Bone" data-i18n-tw="古代獸骨">Ancient Bone</a></li>
+                <li><a href="Palpagos_Islands?filters=Ancient+Lava" data-i18n-tw="古代熔岩塊">Ancient Lava</a></li>
+                <li><a href="Palpagos_Islands?filters=Ancient+Bark" data-i18n-tw="古代樹皮">Ancient Bark</a></li>
+                <li>Breed <a href="Breed?parent=&child=Anubis&useChild=0" data-i18n-tw="阿努比斯">Anubis</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div   class='card mb-2 markdown'>
+    
+    <div  class='collapse show'>
+     <div class='card-body clearfix'><h5><span data-i18n-tw="內容">Content</span> <span data-i18n-tw="更新">Update</span></h5>
+
+<div class="row row-cols-1 row-cols-lg-3 g-2">
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v1.0.0"><img loading="lazy" class="card-img-top" src="https://cdn.paldb.cc/image/1.0/Palworld_Release.webp"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v1.0.0" data-i18n-tw="">1.0 Release</a></h5>
+            <p class="card-text" data-i18n-tw=""></p>
+        </div>
+        <div class="card-footer d-flex flex-row-reverse">
+            <small class="text-muted">2026/07/10 03:02:34 UTC</small></div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.7.0"><img loading="lazy" class="card-img-top" src="https://clan.fastly.steamstatic.com/images/40671762/21efd33714f5cebcc762092e2e80c66df6348c41_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.7.0" data-i18n-tw="心歸之所">Home Sweet Home</a></h5>
+            <p class="card-text" data-i18n-tw="v0.7: ULTRAKILL 聯動">v0.7: ULTRAKILL Collaboration!</p>
+        </div>
+        <div class="card-footer d-flex flex-row-reverse">
+            <small class="text-muted">2025/12/17 03:01:04 UTC</small></div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="Tides_of_Terraria"><img loading="lazy" class="card-img-top" src="https://clan.fastly.steamstatic.com/images/40671762/7f4f43a52e9818e13258581367b218482e08e8c6_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="Tides_of_Terraria" data-i18n-tw="潮起泰拉瑞亞">Tides of Terraria</a></h5>
+            <p class="card-text" data-i18n-tw="v0.6：在泰拉瑞亞世界展開冒險的大規模合作！還有「釣魚」「打撈」等多種新要素的追加！">Palworld v0.6: Tides of Terraria has been released!</p>
+        </div>
+        <div class="card-footer d-flex flex-row-reverse">
+            <small class="text-muted">2025/06/25 03:01:30 UTC</small></div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="Crossplay"><img loading="lazy" class="card-img-top" src="https://clan.fastly.steamstatic.com/images/40671762/e829a69a3cb2b34668f7278a412074412a738ffe_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="Crossplay" data-i18n-tw="跨平台遊玩">Crossplay</a></h5>
+            <p class="card-text" data-i18n-tw="v0.5: 在遊戲發布的所有平台間可進行跨平台遊玩！及其他多種新功能的追加！">v0.5: Play across all platforms, Global Palbox and more!</p>
+        </div>
+        <div class="card-footer d-flex flex-row-reverse">
+            <small class="text-muted">2025/03/19 03:01:18 UTC</small></div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="Feybreak"><img loading="lazy" class="card-img-top" src="https://clan.fastly.steamstatic.com/images/40671762/925617086091c1a66aff8d5ea3fca00381e95e81_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="Feybreak" data-i18n-tw="天墜之地">Feybreak</a></h5>
+            <p class="card-text" data-i18n-tw="v0.4：新區域，新帕魯，新建築，遠徵，研究，硬核模式等等，追加大量新要素的大型更新！">v0.4: New Island, Pals, features and more!</p>
+        </div>
+        <div class="card-footer d-flex flex-row-reverse">
+            <small class="text-muted">2024/12/23 02:04:25 UTC</small></div>
+    </div>
+</div>
+
+
+<div class="col">
+    <div class="card h-100">
+        <a href="Sakurajima"><img loading="lazy" class="card-img-top" src="https://clan.akamai.steamstatic.com/images/40671762/ef6d5a64f69cee213c4225ac7f855500fff79a43_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="Sakurajima" data-i18n-tw="櫻島">Sakurajima</a></h5>
+            <p class="card-text" data-i18n-tw="v0.3.1：超大型更新，增加了新區域、新帕魯、新建築、競技場等大量新元素！">v0.3.1: New area, Pals, buildings and more!</p>
+        </div>
+        <div class="card-footer d-flex flex-row-reverse"><small class="text-muted">2024/06/27 02:55:59 UTC</small></div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="Raid#Raid"><img loading="lazy" class="card-img-top" src="https://clan.akamai.steamstatic.com/images/40671762/eb890a794f175c4a7ad5c6b0daa3eb4b644dd5ab_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="Raid#Raid" data-i18n-tw="襲擊頭目">Raid Boss</a></h5>
+            <p class="card-text">Raid Boss “Bellanoir”! New content, improved building and more!</p>
+        </div>
+        <div class="card-footer d-flex flex-row-reverse"><small class="text-muted">2024/04/04 04:04:22 UTC</small></div>
+    </div>
+</div>
+
+
+<div class="col">
+    <div class="card h-100">
+        <a href=""><img loading="lazy" class="card-img-top" src="https://clan.fastly.steamstatic.com/images/40671762/d3777d20de12c17be728e1e15cf948144abbb26e_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="" data-i18n-tw="開售搶先體驗">Early access starts!</a></h5>
+            <p class="card-text" data-i18n-tw="帕魯和領域Boss集結亮相的最新發售日預告片現已公開！">The latest trailer featuring Pals and field bosses has been released!</p>
+        </div>
+        <div class="card-footer d-flex flex-row-reverse"><small class="text-muted">2024/01/19 07:59:40 UTC</small></div>
+    </div>
+</div>
+
+
+</div>
+</div>  
+    </div>
+</div><div   class='card mb-2 markdown'>
+    
+    <div  class='collapse show'>
+     <div class='card-body clearfix'><h5><span data-i18n-tw="新聞">News</span> <span>Patch</span></h5>
+
+<div class="row row-cols-1 row-cols-lg-3 g-2">
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.7.3"><img loading="lazy" class="card-img-top" src="https://clan.fastly.steamstatic.com/images/40671762/6b3c02612e9d1e6f0955f21915e4b5239b999b64_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.7.3" data-i18n-tw="版本更新 v0.7.3">Patch Notes v0.7.3</a></h5>
+            <p class="card-text" data-i18n-tw="功能調整與問題修復">Balance adjustments and bug fixes</p>
+        </div>
+        <div class="card-footer d-flex flex-row-reverse"><small class="text-muted">2026/04/06</small></div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.7.2"><img loading="lazy" class="card-img-top" src="https://clan.fastly.steamstatic.com/images/40671762/6b3c02612e9d1e6f0955f21915e4b5239b999b64_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.7.2" data-i18n-tw="版本更新 v0.7.2">Patch Notes v0.7.2</a></h5>
+            <p class="card-text" data-i18n-tw="功能調整與問題修復">Balance adjustments and bug fixes</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2026/02/16</small></p>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.7.1"><img loading="lazy" class="card-img-top" src="https://clan.fastly.steamstatic.com/images/40671762/6b3c02612e9d1e6f0955f21915e4b5239b999b64_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.7.1" data-i18n-tw="版本更新 v0.7.1">Patch Notes v0.7.1</a></h5>
+            <p class="card-text" data-i18n-tw="功能調整與問題修復">Balance adjustments and bug fixes</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2026/01/21</small></p>
+        </div>
+    </div>
+</div>
+
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.6.8"><img loading="lazy" class="card-img-top" src="https://clan.fastly.steamstatic.com/images/40671762/f3738119fc68c24e8fa3b7dd7b83b254d32e4b64_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.6.8" data-i18n-tw="版本更新 v0.6.8">Patch Notes v0.6.8</a></h5>
+            <p class="card-text" data-i18n-tw="追加萬聖節任務！來獲取佐伊的萬聖節服裝及瞅什魔玩偶服吧！">Halloween! Zoe's Halloween costume and Depresso suit!</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2025/10/23</small></p>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.6.6"><img loading="lazy" class="card-img-top" src="https://clan.fastly.steamstatic.com/images/40671762/6b3c02612e9d1e6f0955f21915e4b5239b999b64_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.6.6" data-i18n-tw="版本更新 v0.6.6">Patch Notes v0.6.6</a></h5>
+            <p class="card-text" data-i18n-tw="">Balance adjustments and bug fixes</p>
+        </div>
+        <div class="card-footer d-flex flex-row-reverse"><small class="text-muted">2026/04/06</small></div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.6.4"><img loading="lazy" class="card-img-top" src="https://clan.fastly.steamstatic.com/images/40671762/d41e24cad091c0cfa4f68a112e53b55eb66b98b7_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.6.4" data-i18n-tw="版本更新 v0.6.4">Patch Notes v0.6.4</a></h5>
+            <p class="card-text" data-i18n-tw="">Moon Lord [Master] and bug fixes</p>
+        </div>
+        <div class="card-footer d-flex flex-row-reverse"><small class="text-muted">2026/04/06</small></div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.4.15"><img loading="lazy" class="card-img-top" src="https://clan.fastly.steamstatic.com/images/40671762/7244d18fed6092767869b353bf16ff5dbaa93b8c_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.4.15" data-i18n-tw="版本更新 v0.4.15">Patch Notes v0.4.15</a></h5>
+            <p class="card-text" data-i18n-tw="隨機帕魯模式全新改版！以及其他問題修正措施">Random Pal mode rework! Bug fixes!</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2025/02/20</small></p>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.4.14"><img loading="lazy" class="card-img-top" src="https://clan.fastly.steamstatic.com/images/40671762/43bf99f37f6f7df11d27af1d534106a628ae89b8_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.4.14" data-i18n-tw="版本更新 v0.4.14">Patch Notes v0.4.14</a></h5>
+            <p class="card-text" data-i18n-tw="發給全體玩家5種春節外觀！以及一些平衡調整與問題修正">Spring Festival skins! Balance adjustments and bug fixes!</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2025/01/24</small></p>
+        </div>
+    </div>
+</div>
+
+<!--
+<div class="col">
+    <div class="card h-100">
+        <a href="Roadmap"><img loading="lazy" class="card-img-top" src="https://clan.fastly.steamstatic.com/images/40671762/7d457bb20fefc79f48a4b62393de5124ac6fe5d1_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="Roadmap">Roadmap</a></h5>
+            <p class="card-text">Celebrating Palworld’s first anniversary! Future roadmap revealed!</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2025/01/19</small></p>
+        </div>
+    </div>
+</div>
+-->
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.3.10"><img loading="lazy" class="card-img-top" src="https://clan.fastly.steamstatic.com/images/40671762/62e5282cf21ee39f5d423106e820a7191d6f85ae_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.3.10" data-i18n-tw="版本更新 v0.3.10">Patch Notes v0.3.10</a></h5>
+            <p class="card-text" data-i18n-tw="版本更新v0.3.10：贈送4種萬聖節造型給所有玩家！和一些問題的修正">Update v0.3.10: Free Halloween skins and bug fixes!</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2024/10/30</small></p>
+        </div>
+    </div>
+</div>
+
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.3.5"><img loading="lazy" class="card-img-top" src="https://clan.akamai.steamstatic.com/images/40671762/28c460e88a58b58294112b1babe1f3c67f636dab_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.3.5" data-i18n-tw="版本更新 v0.3.5">Patch Notes v0.3.5</a></h5>
+            <p class="card-text" data-i18n-tw="更新 v0.3.5：針對據點內卡住通知頻繁度的降低和其他問題的修正">Update v0.3.5: Notification frequency reduced and bug fixes</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2024/08/07</small></p>
+        </div>
+    </div>
+</div>
+
+
+
+<!--
+<div class="col">
+    <div class="card h-100">
+        <img loading="lazy" class="card-img-top" src="https://cdn.paldb.cc/image/Pal/Texture/HelpGuide/T_HelpGuide_3.webp">
+        <div class="card-body">
+            <h5 class="card-title" data-i18n-tw="官方伺服器 8 月 1 日重置">Official server wipe at August 1st</h5>
+            <p class="card-text">The official servers are currently being operated on a trial basis. The next scheduled wipe is August 1st at 00:00 (JST). The period until the next wipe may be extended depending on the server status. If no guild members log in for 48 hours, items belonging to that guild, buildings, and pals placed in bases will be deleted. The difficulty is normal, and the egg incubation time is 24 hours. Regular restarts will take place at 2:00, 6:00, 10:00, 14:00, 18:00 and 22:00.</p>
+            <div data-countdown="1722438000" data-format="day"></div>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2024/08/01</small></p>
+        </div>
+    </div>
+</div>
+-->
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.3.4"><img loading="lazy" class="card-img-top" src="https://clan.akamai.steamstatic.com/images/40671762/99296d64641b4f2d64faca0cc73c0e434dcc068d_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.3.4" data-i18n-tw="版本更新 v0.3.4">Patch Notes v0.3.4</a></h5>
+            <p class="card-text" data-i18n-tw="更新 v0.3.4：新增隕石＆補給物資的空投間隔設定！並實作其他平衡調整類別的修改">Update v0.3.4: Meteorite and supply drop settings! Balance adjustments and more!</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2024/07/29</small></p>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="Sakurajima"><img loading="lazy" class="card-img-top" src="https://clan.akamai.steamstatic.com/images/40671762/ef6d5a64f69cee213c4225ac7f855500fff79a43_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="Sakurajima" data-i18n-tw="版本更新 v0.3.1">Patch Notes v0.3.1</a></h5>
+            <p class="card-text" data-i18n-tw="櫻島更新v0.3.1：超大型更新，增加了新區域、新帕魯、新建築、競技場等大量新元素！">Major update! Sakurajima v0.3.1.: New area, Pals, buildings and more!</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2024/06/27</small></p>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.2.4.0"><img loading="lazy" class="card-img-top" src="https://clan.akamai.steamstatic.com/images/40671762/824a68093ff6f52885cdbb15ee47e211afe450bc_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.2.4.0" data-i18n-tw="版本更新 v0.2.4.0">Patch Notes v0.2.4.0</a></h5>
+            <p class="card-text" data-i18n-tw="現在配種牧場生下的蛋將有機率孵化出阿爾法帕魯">Alpha Pal breeding and more!</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2024/05/14</small></p>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.2.3.0"><img loading="lazy" class="card-img-top" src="https://clan.akamai.steamstatic.com/images/40671762/da1686a00207adf84c579bdc775ce270cdd31323_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.2.3.0" data-i18n-tw="版本更新 v0.2.3.0">Patch Notes v0.2.3.0</a></h5>
+            <p class="card-text" data-i18n-tw="追加電能帕魯蛋孵化器的孵化速度增加到1.5倍的效果">Electric Egg Incubator speed buffed to 1.5, and more</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2024/04/22</small></p>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.2.2.0"><img loading="lazy" class="card-img-top" src="https://clan.akamai.steamstatic.com/images/40671762/b9c4be509080f2ed4e782babd9055bd34c29bf2d_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.2.2.0" data-i18n-tw="版本更新 v0.2.2.0">Patch Notes v0.2.2.0</a></h5>
+            <p class="card-text" data-i18n-tw="關於帕魯的攻擊傷害等問題的修正">Fixed issues with Pal's attack damage, and more.</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2024/04/15</small></p>
+        </div>
+    </div>
+</div>
+
+
+<!--
+<div class="col">
+    <div class="card h-100">
+        <a href="#" class="js-modal-btn card-img-top" data-video-id="VyjHs2KUFPc"></a>
+        <div class="card-body">
+            <h5 class="card-title" data-i18n-tw="帕魯競技場的預告影片!">We announced the Palworld arena! </h5>
+            <p class="card-text">Battle against other players, pitting both yourself and your pals against them 🔥</p>
+            <p class="card-text">Train the strongest Pals and defeat all your rivals 🥊</p>
+            <p class="card-text">The Pal Arena makes its way to Palworld in 2024 ⚔</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2024/04/11</small></p>
+        </div>
+    </div>
+</div>
+-->
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.2.1.0"><img loading="lazy" class="card-img-top" src="https://clan.akamai.steamstatic.com/images/40671762/4a3e1bb110761065bafabb73aff60b496b08ad8d_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.2.1.0" data-i18n-tw="版本更新 v0.2.1.0">Patch Notes v0.2.1.0</a></h5>
+            <p class="card-text" data-i18n-tw="帕魯蛋無法放入孵化器的問題修正">Bug fixed where eggs could not be placed in the egg incubator</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2024/04/11</small></p>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <a href="v0.2.0.6"><img loading="lazy" class="card-img-top" src="https://clan.akamai.steamstatic.com/images/40671762/eb890a794f175c4a7ad5c6b0daa3eb4b644dd5ab_400x225.png"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a href="v0.2.0.6" data-i18n-tw="版本更新 v0.2.0.6">Patch Notes v0.2.0.6</a></h5>
+            <p class="card-text">Raid Boss “Bellanoir”! New content, improved building and more!</p>
+            <p class="card-text d-flex flex-row-reverse"><small class="text-muted">2024/04/04</small></p>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+</div>  
+    </div>
+</div></div></div>
+    </div>
+    </div>
+
+    <footer class="text-center text-lg-left container mt-2">
+      <div class="card p-4">
+        <div class="row">
+
+          <div class="col-lg-3 col-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Sites</h5>
+            <ul class="list-unstyled mb-0">
+              <li> <a target="_blank" href="https://poedb.tw/">poedb.tw</a> </li>
+              <li> <a target="_blank" href="https://tlidb.com/">tlidb.com</a> </li>
+              <!--<li> <a target="_blank" href="https://diablo4.cc/">diablo4.cc</a> </li>-->
+              <li> <a target="_blank" href="https://poe2db.tw/">poe2db.tw</a> </li>
+              <li> <a target="_blank" href="https://paldb.cc/">paldb.cc</a> </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">About Site</h5>
+            <ul class="list-unstyled mb-0">
+              <li> <a href="privacy">Privacy</a> </li>
+              <li> <a target="_blank" href="https://www.reddit.com/user/chuanhsing">About US</a> </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Version</h5>
+            <ul class="list-unstyled mb-0">
+              <li> <a href="version">v1.0.0</a> 2026/7/10</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Community</h5>
+            <ul class="list-unstyled mb-0">
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      <div class="p-3">
+        <span>This site is fan-made and not affiliated with <a href="https://www.pocketpair.jp/" target="_blank">Pocketpair</a> in any way.</span>
+      </div>
+    </footer>
+
+    <a href="#top" id="toTop"><span class="fas fa-arrow-circle-up fa-3x"></span></a>
+
+    <script src="/js/footer.js?1783859662
+"></script>
+<script>
+$(document).ready(function()
+ {
+    if (window.location.hostname != "paldb.cc") {
+        window.location.href="https://paldb.cc/";
+    }
+ });
+</script>
+
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"ad52ef62a25e4a188cfdb0e6f473e83b","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

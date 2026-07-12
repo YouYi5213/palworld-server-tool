@@ -11645,6 +11645,366 @@
       "name": "V2 Armor Schematic 4",
       "description": "[ULTRAKILL Collab] When in inventory, unlocks recipe for V2 Armor (Legendary). Can be crafted at Production Assembly Line II.",
       "key": "Blueprint_Octavia002_Armor_5"
+    },
+    {
+      "id": "bio_battery",
+      "name": "Bio Battery",
+      "description": "A device that converts bio-energy into electricity for storage.",
+      "key": "BioBattery"
+    },
+    {
+      "id": "bio_coolant",
+      "name": "Bio Coolant",
+      "description": "High-efficiency cooling medium made from special Pal extracts.",
+      "key": "BioCoolant"
+    },
+    {
+      "id": "corrosive_solvent",
+      "name": "Corrosive Solvent",
+      "description": "A dangerous chemical solvent with strong decomposition effects.",
+      "key": "CorrosiveSolvent"
+    },
+    {
+      "id": "processed_wood",
+      "name": "Processed Wood",
+      "description": "Carefully cut wooden board with beautiful grain.",
+      "key": "ProcessedWood"
+    },
+    {
+      "id": "wood_ancient",
+      "name": "Ancient Mysterious Wood",
+      "description": "Rare wood containing the power of the World Tree.",
+      "key": "AncientWood"
+    },
+    {
+      "id": "wood_fine",
+      "name": "Fine Wood",
+      "description": "Carefully selected quality wood from trees in extreme environments.",
+      "key": "FineWood"
+    },
+    {
+      "id": "cake03",
+      "name": "Cake (Tier 3)",
+      "description": "A delicious cake for breeding Pals.",
+      "key": "Cake03"
+    },
+    {
+      "id": "keysphere_01",
+      "name": "Key Sphere 1",
+      "description": "A sphere key used to unlock certain chests.",
+      "key": "KeySphere01"
+    },
+    {
+      "id": "keysphere_02",
+      "name": "Key Sphere 2",
+      "description": "A sphere key used to unlock certain chests.",
+      "key": "KeySphere02"
+    },
+    {
+      "id": "keysphere_03",
+      "name": "Key Sphere 3",
+      "description": "A sphere key used to unlock certain chests.",
+      "key": "KeySphere03"
+    },
+    {
+      "id": "keysphere_04",
+      "name": "Key Sphere 4",
+      "description": "A sphere key used to unlock certain chests.",
+      "key": "KeySphere04"
+    },
+    {
+      "id": "skyassaultriflebullet",
+      "name": "Sky Assault Rifle Bullet",
+      "description": "Ammunition for the Sky Assault Rifle.",
+      "key": "SkyAssaultRifleBullet"
+    },
+    {
+      "id": "skybowarrow",
+      "name": "Sky Bow Arrow",
+      "description": "Arrows for the Sky Bow.",
+      "key": "SkyBowArrow"
+    },
+    {
+      "id": "skygrenadelauncherbullet",
+      "name": "Sky Grenade Launcher Bullet",
+      "description": "Ammunition for the Sky Grenade Launcher.",
+      "key": "SkyGrenadeLauncherBullet"
+    },
+    {
+      "id": "skyshotgunbullet",
+      "name": "Sky Shotgun Bullet",
+      "description": "Ammunition for the Sky Shotgun.",
+      "key": "SkyShotgunBullet"
+    },
+    {
+      "id": "skysubmachinegunbullet",
+      "name": "Sky Submachine Gun Bullet",
+      "description": "Ammunition for the Sky Submachine Gun.",
+      "key": "SkySubmachineGunBullet"
+    },
+    {
+      "id": "skyislandore",
+      "name": "Sky Island Ore",
+      "description": "A rare ore found only on Sky Islands.",
+      "key": "SkyIslandOre"
+    },
+    {
+      "id": "palsphere_ancient_1",
+      "name": "Ancient Pal Sphere",
+      "description": "An ancient sphere for capturing Pals.",
+      "key": "AncientPalSphere"
+    },
+    {
+      "id": "palsphere_ancient_2",
+      "name": "Ancient Pal Sphere (Enhanced)",
+      "description": "An enhanced ancient sphere for capturing Pals.",
+      "key": "AncientPalSphere2"
+    },
+    {
+      "id": "palegg_mutationpal_05",
+      "name": "Huge Mutated Egg",
+      "description": "A huge mutated Pal egg with a strange aura.",
+      "key": "MutatedEgg05"
+    },
+    {
+      "id": "skillcard_bubbleshower",
+      "name": "Skill Card: Bubble Shower",
+      "description": "A skill fruit that teaches Bubble Shower.",
+      "key": "SkillBubbleShower"
+    },
+    {
+      "id": "palpassiveskillchange_consumable_pal_fullstomach_down_3",
+      "name": "Passive Skill Change: Full Stomach Down 3",
+      "description": "A consumable that changes Pal passive skill to reduce hunger.",
+      "key": "PassiveFullStomachDown3"
+    },
+    {
+      "id": "worksuitability_addticket_monsterfarm",
+      "name": "Work Suitability Ticket: Monster Farm",
+      "description": "A ticket that adds Monster Farm work suitability to a Pal.",
+      "key": "WorkTicketMonsterFarm"
+    },
+    {
+      "id": "blueprint_accessory_at_1_2",
+      "name": "Attack Accessory Blueprint Lv.2",
+      "description": "A design blueprint for attack accessory lv.2.",
+      "key": "AccessoryAT12"
+    },
+    {
+      "id": "blueprint_accessory_coldice_1",
+      "name": "Cold Ice Accessory Blueprint Lv.1",
+      "description": "A design blueprint for cold ice accessory lv.1.",
+      "key": "AccessoryColdIce1"
+    },
+    {
+      "id": "blueprint_accessory_dfhp_1",
+      "name": "Defense HP Accessory Blueprint Lv.1",
+      "description": "A design blueprint for defense hp accessory lv.1.",
+      "key": "AccessoryDFHP1"
+    },
+    {
+      "id": "blueprint_accessory_dragonresist_1_2",
+      "name": "Dragon Resist Accessory Blueprint Lv.2",
+      "description": "A design blueprint for dragon resist accessory lv.2.",
+      "key": "AccessoryDragonResist12"
+    },
+    {
+      "id": "blueprint_accessory_hp_1_2",
+      "name": "HP Accessory Blueprint Lv.2",
+      "description": "A design blueprint for hp accessory lv.2.",
+      "key": "AccessoryHP12"
+    },
+    {
+      "id": "blueprint_accessory_heatfire_1",
+      "name": "Fire Accessory Blueprint Lv.1",
+      "description": "A design blueprint for fire accessory lv.1.",
+      "key": "AccessoryHeatFire1"
+    },
+    {
+      "id": "blueprint_accessory_heatresist_1_2",
+      "name": "Heat Resist Accessory Blueprint Lv.2",
+      "description": "A design blueprint for heat resist accessory lv.2.",
+      "key": "AccessoryHeatResist12"
+    },
+    {
+      "id": "blueprint_accessory_iceresist_1_2",
+      "name": "Ice Resist Accessory Blueprint Lv.2",
+      "description": "A design blueprint for ice resist accessory lv.2.",
+      "key": "AccessoryIceResist12"
+    },
+    {
+      "id": "blueprint_accessory_leafresist_1_2",
+      "name": "Leaf Resist Accessory Blueprint Lv.2",
+      "description": "A design blueprint for leaf resist accessory lv.2.",
+      "key": "AccessoryLeafResist12"
+    },
+    {
+      "id": "blueprint_accessory_ppat_1",
+      "name": "Attack Accessory Blueprint Lv.1",
+      "description": "A design blueprint for attack accessory lv.1.",
+      "key": "AccessoryPPAT1"
+    },
+    {
+      "id": "blueprint_accessory_ppdf_1",
+      "name": "Defense Accessory Blueprint Lv.1",
+      "description": "A design blueprint for defense accessory lv.1.",
+      "key": "AccessoryPPDF1"
+    },
+    {
+      "id": "blueprint_ancientarmor_2",
+      "name": "Ancient Armor Blueprint Lv.2",
+      "description": "A design blueprint for ancient armor lv.2.",
+      "key": "AncientArmor2"
+    },
+    {
+      "id": "blueprint_ancienthelmet_2",
+      "name": "Ancient Helmet Blueprint Lv.2",
+      "description": "A design blueprint for ancient helmet lv.2.",
+      "key": "AncientHelmet2"
+    },
+    {
+      "id": "blueprint_ancienthelmet_3",
+      "name": "Ancient Helmet Blueprint Lv.3",
+      "description": "A design blueprint for ancient helmet lv.3.",
+      "key": "AncientHelmet3"
+    },
+    {
+      "id": "blueprint_ancienthelmet_5",
+      "name": "Ancient Helmet Blueprint Lv.5",
+      "description": "A design blueprint for ancient helmet lv.5.",
+      "key": "AncientHelmet5"
+    },
+    {
+      "id": "blueprint_bat3_4",
+      "name": "Bat Blueprint Lv.4",
+      "description": "A design blueprint for bat lv.4.",
+      "key": "Bat34"
+    },
+    {
+      "id": "blueprint_beamlauncher_3",
+      "name": "Beam Launcher Blueprint Lv.3",
+      "description": "A design blueprint for beam launcher lv.3.",
+      "key": "BeamLauncher3"
+    },
+    {
+      "id": "blueprint_beamsword_4",
+      "name": "Beam Sword Blueprint Lv.4",
+      "description": "A design blueprint for beam sword lv.4.",
+      "key": "BeamSword4"
+    },
+    {
+      "id": "blueprint_otomo_atelectricity_elementboost_1",
+      "name": "Electric Pal Boost Accessory Blueprint Lv.1",
+      "description": "A design blueprint for electric pal boost accessory lv.1.",
+      "key": "OtomoATElec1"
+    },
+    {
+      "id": "blueprint_otomo_elementboost_dark_1_2",
+      "name": "Dark Pal Boost Accessory Blueprint Lv.2",
+      "description": "A design blueprint for dark pal boost accessory lv.2.",
+      "key": "OtomoDark12"
+    },
+    {
+      "id": "blueprint_otomo_elementboost_dragon_1_2",
+      "name": "Dragon Pal Boost Accessory Blueprint Lv.2",
+      "description": "A design blueprint for dragon pal boost accessory lv.2.",
+      "key": "OtomoDragon12"
+    },
+    {
+      "id": "blueprint_otomo_elementboost_earth_1_2",
+      "name": "Earth Pal Boost Accessory Blueprint Lv.2",
+      "description": "A design blueprint for earth pal boost accessory lv.2.",
+      "key": "OtomoEarth12"
+    },
+    {
+      "id": "blueprint_otomo_elementboost_electricity_1_2",
+      "name": "Electric Pal Boost Accessory Blueprint Lv.2",
+      "description": "A design blueprint for electric pal boost accessory lv.2.",
+      "key": "OtomoElec12"
+    },
+    {
+      "id": "blueprint_otomo_elementboost_ice_1_2",
+      "name": "Ice Pal Boost Accessory Blueprint Lv.2",
+      "description": "A design blueprint for ice pal boost accessory lv.2.",
+      "key": "OtomoIce12"
+    },
+    {
+      "id": "blueprint_skyassaultrifle_3",
+      "name": "Sky Assault Rifle Blueprint Lv.3",
+      "description": "A design blueprint for sky assault rifle lv.3.",
+      "key": "SkyAssaultRifle3"
+    },
+    {
+      "id": "blueprint_skybeamsword_4",
+      "name": "Sky Beam Sword Blueprint Lv.4",
+      "description": "A design blueprint for sky beam sword lv.4.",
+      "key": "SkyBeamSword4"
+    },
+    {
+      "id": "blueprint_skybow_2",
+      "name": "Sky Bow Blueprint Lv.2",
+      "description": "A design blueprint for sky bow lv.2.",
+      "key": "SkyBow2"
+    },
+    {
+      "id": "blueprint_skybow_3",
+      "name": "Sky Bow Blueprint Lv.3",
+      "description": "A design blueprint for sky bow lv.3.",
+      "key": "SkyBow3"
+    },
+    {
+      "id": "blueprint_skybow_5",
+      "name": "Sky Bow Blueprint Lv.5",
+      "description": "A design blueprint for sky bow lv.5.",
+      "key": "SkyBow5"
+    },
+    {
+      "id": "blueprint_skyshotgun_2",
+      "name": "Sky Shotgun Blueprint Lv.2",
+      "description": "A design blueprint for sky shotgun lv.2.",
+      "key": "SkyShotgun2"
+    },
+    {
+      "id": "blueprint_skysubmachinegun_2",
+      "name": "Sky Submachine Gun Blueprint Lv.2",
+      "description": "A design blueprint for sky submachine gun lv.2.",
+      "key": "SkySMG2"
+    },
+    {
+      "id": "blueprint_skysubmachinegun_3",
+      "name": "Sky Submachine Gun Blueprint Lv.3",
+      "description": "A design blueprint for sky submachine gun lv.3.",
+      "key": "SkySMG3"
+    },
+    {
+      "id": "blueprint_skysubmachinegun_4",
+      "name": "Sky Submachine Gun Blueprint Lv.4",
+      "description": "A design blueprint for sky submachine gun lv.4.",
+      "key": "SkySMG4"
+    },
+    {
+      "id": "blueprint_sword_2",
+      "name": "Sword Blueprint Lv.2",
+      "description": "A design blueprint for sword lv.2.",
+      "key": "Sword2"
+    },
+    {
+      "id": "blueprint_sword_3",
+      "name": "Sword Blueprint Lv.3",
+      "description": "A design blueprint for sword lv.3.",
+      "key": "Sword3"
+    },
+    {
+      "id": "blueprint_sword_4",
+      "name": "Sword Blueprint Lv.4",
+      "description": "A design blueprint for sword lv.4.",
+      "key": "Sword4"
+    },
+    {
+      "id": "blueprint_widepenetrateshotgun_3",
+      "name": "Penetrate Shotgun Blueprint Lv.3",
+      "description": "A design blueprint for penetrate shotgun lv.3.",
+      "key": "WPSG3"
     }
   ],
   "zh": [
@@ -23293,6 +23653,366 @@
       "name": "V2盔甲设计图4",
       "description": "【ULTRAKILL 联动】持有此设计图，即可解锁「V2盔甲（传奇）」的配方。可在「作业流水线工厂 II」制作。",
       "key": "Blueprint_Octavia002_Armor_5"
+    },
+    {
+      "id": "bio_battery",
+      "name": "生化电池",
+      "description": "可将生物能源转化为电力并存储的装置。用于驱动需要较高能量密度的机器。",
+      "key": "BioBattery"
+    },
+    {
+      "id": "bio_coolant",
+      "name": "极低温冷却介质",
+      "description": "用帕鲁身上提取的特殊成分制作的高效冷却介质。用于控制大功率设备的温度。",
+      "key": "BioCoolant"
+    },
+    {
+      "id": "corrosive_solvent",
+      "name": "腐蚀溶剂",
+      "description": "具有强效分解作用的危险化学溶剂，用于精密加工及特殊处理。",
+      "key": "CorrosiveSolvent"
+    },
+    {
+      "id": "processed_wood",
+      "name": "优质木板",
+      "description": "精心切割硬木材得到的板材，拥有美丽的木纹。",
+      "key": "ProcessedWood"
+    },
+    {
+      "id": "wood_ancient",
+      "name": "神秘木材",
+      "description": "含有世界树力量的稀有木材。如果不是技术熟练的工匠甚至无法加工它。",
+      "key": "AncientWood"
+    },
+    {
+      "id": "wood_fine",
+      "name": "硬木材",
+      "description": "精挑细选的优质木材。砍伐生长在沙漠、火山、雪山等极端环境下的树木可以获得。",
+      "key": "FineWood"
+    },
+    {
+      "id": "cake03",
+      "name": "蛋糕(Lv.3)",
+      "description": "用于帕鲁配种的美味蛋糕。",
+      "key": "Cake03"
+    },
+    {
+      "id": "keysphere_01",
+      "name": "钥匙球1",
+      "description": "用于开启特定宝箱的球型钥匙。",
+      "key": "KeySphere01"
+    },
+    {
+      "id": "keysphere_02",
+      "name": "钥匙球2",
+      "description": "用于开启特定宝箱的球型钥匙。",
+      "key": "KeySphere02"
+    },
+    {
+      "id": "keysphere_03",
+      "name": "钥匙球3",
+      "description": "用于开启特定宝箱的球型钥匙。",
+      "key": "KeySphere03"
+    },
+    {
+      "id": "keysphere_04",
+      "name": "钥匙球4",
+      "description": "用于开启特定宝箱的球型钥匙。",
+      "key": "KeySphere04"
+    },
+    {
+      "id": "skyassaultriflebullet",
+      "name": "天坠突击步枪子弹",
+      "description": "天坠突击步枪的弹药。",
+      "key": "SkyAssaultRifleBullet"
+    },
+    {
+      "id": "skybowarrow",
+      "name": "天坠弓箭",
+      "description": "天坠弓的箭矢。",
+      "key": "SkyBowArrow"
+    },
+    {
+      "id": "skygrenadelauncherbullet",
+      "name": "天坠榴弹发射器子弹",
+      "description": "天坠榴弹发射器的弹药。",
+      "key": "SkyGrenadeLauncherBullet"
+    },
+    {
+      "id": "skyshotgunbullet",
+      "name": "天坠霰弹枪子弹",
+      "description": "天坠霰弹枪的弹药。",
+      "key": "SkyShotgunBullet"
+    },
+    {
+      "id": "skysubmachinegunbullet",
+      "name": "天坠冲锋枪子弹",
+      "description": "天坠冲锋枪的弹药。",
+      "key": "SkySubmachineGunBullet"
+    },
+    {
+      "id": "skyislandore",
+      "name": "天坠矿石",
+      "description": "只能在天坠之地发现的珍贵矿石。",
+      "key": "SkyIslandOre"
+    },
+    {
+      "id": "palsphere_ancient_1",
+      "name": "古代帕鲁球",
+      "description": "用于捕获帕鲁的古代球体。",
+      "key": "AncientPalSphere"
+    },
+    {
+      "id": "palsphere_ancient_2",
+      "name": "古代帕鲁球(强化)",
+      "description": "用于捕获帕鲁的强化古代球体。",
+      "key": "AncientPalSphere2"
+    },
+    {
+      "id": "palegg_mutationpal_05",
+      "name": "巨大突变帕鲁蛋",
+      "description": "发生了非常罕见的特殊变异的巨大帕鲁蛋。",
+      "key": "MutatedEgg05"
+    },
+    {
+      "id": "skillcard_bubbleshower",
+      "name": "技能果实:泡沫射击",
+      "description": "能学会泡沫射击的技能果实。",
+      "key": "SkillBubbleShower"
+    },
+    {
+      "id": "palpassiveskillchange_consumable_pal_fullstomach_down_3",
+      "name": "被动技能变更:饱腹度下降3",
+      "description": "变更帕鲁被动技能为减少饱腹度下降的消耗品。",
+      "key": "PassiveFullStomachDown3"
+    },
+    {
+      "id": "worksuitability_addticket_monsterfarm",
+      "name": "工作适应性券:牧场",
+      "description": "可赋予帕鲁牧场工作适应性的券。",
+      "key": "WorkTicketMonsterFarm"
+    },
+    {
+      "id": "blueprint_accessory_at_1_2",
+      "name": "攻击饰品设计图 Lv.2",
+      "description": "攻击饰品设计图 Lv.2，可用于制作对应装备。",
+      "key": "AccessoryAT12"
+    },
+    {
+      "id": "blueprint_accessory_coldice_1",
+      "name": "冰结饰品设计图 Lv.1",
+      "description": "冰结饰品设计图 Lv.1，可用于制作对应装备。",
+      "key": "AccessoryColdIce1"
+    },
+    {
+      "id": "blueprint_accessory_dfhp_1",
+      "name": "防御HP饰品设计图 Lv.1",
+      "description": "防御HP饰品设计图 Lv.1，可用于制作对应装备。",
+      "key": "AccessoryDFHP1"
+    },
+    {
+      "id": "blueprint_accessory_dragonresist_1_2",
+      "name": "龙抗饰品设计图 Lv.2",
+      "description": "龙抗饰品设计图 Lv.2，可用于制作对应装备。",
+      "key": "AccessoryDragonResist12"
+    },
+    {
+      "id": "blueprint_accessory_hp_1_2",
+      "name": "HP饰品设计图 Lv.2",
+      "description": "HP饰品设计图 Lv.2，可用于制作对应装备。",
+      "key": "AccessoryHP12"
+    },
+    {
+      "id": "blueprint_accessory_heatfire_1",
+      "name": "火焰饰品设计图 Lv.1",
+      "description": "火焰饰品设计图 Lv.1，可用于制作对应装备。",
+      "key": "AccessoryHeatFire1"
+    },
+    {
+      "id": "blueprint_accessory_heatresist_1_2",
+      "name": "耐热饰品设计图 Lv.2",
+      "description": "耐热饰品设计图 Lv.2，可用于制作对应装备。",
+      "key": "AccessoryHeatResist12"
+    },
+    {
+      "id": "blueprint_accessory_iceresist_1_2",
+      "name": "耐寒饰品设计图 Lv.2",
+      "description": "耐寒饰品设计图 Lv.2，可用于制作对应装备。",
+      "key": "AccessoryIceResist12"
+    },
+    {
+      "id": "blueprint_accessory_leafresist_1_2",
+      "name": "耐草饰品设计图 Lv.2",
+      "description": "耐草饰品设计图 Lv.2，可用于制作对应装备。",
+      "key": "AccessoryLeafResist12"
+    },
+    {
+      "id": "blueprint_accessory_ppat_1",
+      "name": "攻击饰品设计图 Lv.1",
+      "description": "攻击饰品设计图 Lv.1，可用于制作对应装备。",
+      "key": "AccessoryPPAT1"
+    },
+    {
+      "id": "blueprint_accessory_ppdf_1",
+      "name": "防御饰品设计图 Lv.1",
+      "description": "防御饰品设计图 Lv.1，可用于制作对应装备。",
+      "key": "AccessoryPPDF1"
+    },
+    {
+      "id": "blueprint_ancientarmor_2",
+      "name": "古代防具设计图 Lv.2",
+      "description": "古代防具设计图 Lv.2，可用于制作对应装备。",
+      "key": "AncientArmor2"
+    },
+    {
+      "id": "blueprint_ancienthelmet_2",
+      "name": "古代头盔设计图 Lv.2",
+      "description": "古代头盔设计图 Lv.2，可用于制作对应装备。",
+      "key": "AncientHelmet2"
+    },
+    {
+      "id": "blueprint_ancienthelmet_3",
+      "name": "古代头盔设计图 Lv.3",
+      "description": "古代头盔设计图 Lv.3，可用于制作对应装备。",
+      "key": "AncientHelmet3"
+    },
+    {
+      "id": "blueprint_ancienthelmet_5",
+      "name": "古代头盔设计图 Lv.5",
+      "description": "古代头盔设计图 Lv.5，可用于制作对应装备。",
+      "key": "AncientHelmet5"
+    },
+    {
+      "id": "blueprint_bat3_4",
+      "name": "棒球棍设计图 Lv.4",
+      "description": "棒球棍设计图 Lv.4，可用于制作对应装备。",
+      "key": "Bat34"
+    },
+    {
+      "id": "blueprint_beamlauncher_3",
+      "name": "光束发射器设计图 Lv.3",
+      "description": "光束发射器设计图 Lv.3，可用于制作对应装备。",
+      "key": "BeamLauncher3"
+    },
+    {
+      "id": "blueprint_beamsword_4",
+      "name": "光束剑设计图 Lv.4",
+      "description": "光束剑设计图 Lv.4，可用于制作对应装备。",
+      "key": "BeamSword4"
+    },
+    {
+      "id": "blueprint_otomo_atelectricity_elementboost_1",
+      "name": "雷属性帕鲁增幅器设计图 Lv.1",
+      "description": "雷属性帕鲁增幅器设计图 Lv.1，可用于制作对应装备。",
+      "key": "OtomoATElec1"
+    },
+    {
+      "id": "blueprint_otomo_elementboost_dark_1_2",
+      "name": "暗属性帕鲁增幅器设计图 Lv.2",
+      "description": "暗属性帕鲁增幅器设计图 Lv.2，可用于制作对应装备。",
+      "key": "OtomoDark12"
+    },
+    {
+      "id": "blueprint_otomo_elementboost_dragon_1_2",
+      "name": "龙属性帕鲁增幅器设计图 Lv.2",
+      "description": "龙属性帕鲁增幅器设计图 Lv.2，可用于制作对应装备。",
+      "key": "OtomoDragon12"
+    },
+    {
+      "id": "blueprint_otomo_elementboost_earth_1_2",
+      "name": "地属性帕鲁增幅器设计图 Lv.2",
+      "description": "地属性帕鲁增幅器设计图 Lv.2，可用于制作对应装备。",
+      "key": "OtomoEarth12"
+    },
+    {
+      "id": "blueprint_otomo_elementboost_electricity_1_2",
+      "name": "雷属性帕鲁增幅器设计图 Lv.2",
+      "description": "雷属性帕鲁增幅器设计图 Lv.2，可用于制作对应装备。",
+      "key": "OtomoElec12"
+    },
+    {
+      "id": "blueprint_otomo_elementboost_ice_1_2",
+      "name": "冰属性帕鲁增幅器设计图 Lv.2",
+      "description": "冰属性帕鲁增幅器设计图 Lv.2，可用于制作对应装备。",
+      "key": "OtomoIce12"
+    },
+    {
+      "id": "blueprint_skyassaultrifle_3",
+      "name": "天坠突击步枪设计图 Lv.3",
+      "description": "天坠突击步枪设计图 Lv.3，可用于制作对应装备。",
+      "key": "SkyAssaultRifle3"
+    },
+    {
+      "id": "blueprint_skybeamsword_4",
+      "name": "天坠光束剑设计图 Lv.4",
+      "description": "天坠光束剑设计图 Lv.4，可用于制作对应装备。",
+      "key": "SkyBeamSword4"
+    },
+    {
+      "id": "blueprint_skybow_2",
+      "name": "天坠弓设计图 Lv.2",
+      "description": "天坠弓设计图 Lv.2，可用于制作对应装备。",
+      "key": "SkyBow2"
+    },
+    {
+      "id": "blueprint_skybow_3",
+      "name": "天坠弓设计图 Lv.3",
+      "description": "天坠弓设计图 Lv.3，可用于制作对应装备。",
+      "key": "SkyBow3"
+    },
+    {
+      "id": "blueprint_skybow_5",
+      "name": "天坠弓设计图 Lv.5",
+      "description": "天坠弓设计图 Lv.5，可用于制作对应装备。",
+      "key": "SkyBow5"
+    },
+    {
+      "id": "blueprint_skyshotgun_2",
+      "name": "天坠霰弹枪设计图 Lv.2",
+      "description": "天坠霰弹枪设计图 Lv.2，可用于制作对应装备。",
+      "key": "SkyShotgun2"
+    },
+    {
+      "id": "blueprint_skysubmachinegun_2",
+      "name": "天坠冲锋枪设计图 Lv.2",
+      "description": "天坠冲锋枪设计图 Lv.2，可用于制作对应装备。",
+      "key": "SkySMG2"
+    },
+    {
+      "id": "blueprint_skysubmachinegun_3",
+      "name": "天坠冲锋枪设计图 Lv.3",
+      "description": "天坠冲锋枪设计图 Lv.3，可用于制作对应装备。",
+      "key": "SkySMG3"
+    },
+    {
+      "id": "blueprint_skysubmachinegun_4",
+      "name": "天坠冲锋枪设计图 Lv.4",
+      "description": "天坠冲锋枪设计图 Lv.4，可用于制作对应装备。",
+      "key": "SkySMG4"
+    },
+    {
+      "id": "blueprint_sword_2",
+      "name": "剑设计图 Lv.2",
+      "description": "剑设计图 Lv.2，可用于制作对应装备。",
+      "key": "Sword2"
+    },
+    {
+      "id": "blueprint_sword_3",
+      "name": "剑设计图 Lv.3",
+      "description": "剑设计图 Lv.3，可用于制作对应装备。",
+      "key": "Sword3"
+    },
+    {
+      "id": "blueprint_sword_4",
+      "name": "剑设计图 Lv.4",
+      "description": "剑设计图 Lv.4，可用于制作对应装备。",
+      "key": "Sword4"
+    },
+    {
+      "id": "blueprint_widepenetrateshotgun_3",
+      "name": "穿透霰弹枪设计图 Lv.3",
+      "description": "穿透霰弹枪设计图 Lv.3，可用于制作对应装备。",
+      "key": "WPSG3"
     }
   ],
   "ja": [
@@ -34941,6 +35661,366 @@
       "name": "V2アーマーの設計図4",
       "description": "[ULTRAKILL コラボ]所持していると、「V2アーマー（レジェンダリー）」のレシピが解放される。「作業ライン工場Ⅱ」でクラフトできる。",
       "key": "Blueprint_Octavia002_Armor_5"
+    },
+    {
+      "id": "bio_battery",
+      "name": "生化电池",
+      "description": "可将生物能源转化为电力并存储的装置。用于驱动需要较高能量密度的机器。",
+      "key": "BioBattery"
+    },
+    {
+      "id": "bio_coolant",
+      "name": "极低温冷却介质",
+      "description": "用帕鲁身上提取的特殊成分制作的高效冷却介质。用于控制大功率设备的温度。",
+      "key": "BioCoolant"
+    },
+    {
+      "id": "corrosive_solvent",
+      "name": "腐蚀溶剂",
+      "description": "具有强效分解作用的危险化学溶剂，用于精密加工及特殊处理。",
+      "key": "CorrosiveSolvent"
+    },
+    {
+      "id": "processed_wood",
+      "name": "优质木板",
+      "description": "精心切割硬木材得到的板材，拥有美丽的木纹。",
+      "key": "ProcessedWood"
+    },
+    {
+      "id": "wood_ancient",
+      "name": "神秘木材",
+      "description": "含有世界树力量的稀有木材。如果不是技术熟练的工匠甚至无法加工它。",
+      "key": "AncientWood"
+    },
+    {
+      "id": "wood_fine",
+      "name": "硬木材",
+      "description": "精挑细选的优质木材。砍伐生长在沙漠、火山、雪山等极端环境下的树木可以获得。",
+      "key": "FineWood"
+    },
+    {
+      "id": "cake03",
+      "name": "蛋糕(Lv.3)",
+      "description": "用于帕鲁配种的美味蛋糕。",
+      "key": "Cake03"
+    },
+    {
+      "id": "keysphere_01",
+      "name": "钥匙球1",
+      "description": "用于开启特定宝箱的球型钥匙。",
+      "key": "KeySphere01"
+    },
+    {
+      "id": "keysphere_02",
+      "name": "钥匙球2",
+      "description": "用于开启特定宝箱的球型钥匙。",
+      "key": "KeySphere02"
+    },
+    {
+      "id": "keysphere_03",
+      "name": "钥匙球3",
+      "description": "用于开启特定宝箱的球型钥匙。",
+      "key": "KeySphere03"
+    },
+    {
+      "id": "keysphere_04",
+      "name": "钥匙球4",
+      "description": "用于开启特定宝箱的球型钥匙。",
+      "key": "KeySphere04"
+    },
+    {
+      "id": "skyassaultriflebullet",
+      "name": "天坠突击步枪子弹",
+      "description": "天坠突击步枪的弹药。",
+      "key": "SkyAssaultRifleBullet"
+    },
+    {
+      "id": "skybowarrow",
+      "name": "天坠弓箭",
+      "description": "天坠弓的箭矢。",
+      "key": "SkyBowArrow"
+    },
+    {
+      "id": "skygrenadelauncherbullet",
+      "name": "天坠榴弹发射器子弹",
+      "description": "天坠榴弹发射器的弹药。",
+      "key": "SkyGrenadeLauncherBullet"
+    },
+    {
+      "id": "skyshotgunbullet",
+      "name": "天坠霰弹枪子弹",
+      "description": "天坠霰弹枪的弹药。",
+      "key": "SkyShotgunBullet"
+    },
+    {
+      "id": "skysubmachinegunbullet",
+      "name": "天坠冲锋枪子弹",
+      "description": "天坠冲锋枪的弹药。",
+      "key": "SkySubmachineGunBullet"
+    },
+    {
+      "id": "skyislandore",
+      "name": "天坠矿石",
+      "description": "只能在天坠之地发现的珍贵矿石。",
+      "key": "SkyIslandOre"
+    },
+    {
+      "id": "palsphere_ancient_1",
+      "name": "古代帕鲁球",
+      "description": "用于捕获帕鲁的古代球体。",
+      "key": "AncientPalSphere"
+    },
+    {
+      "id": "palsphere_ancient_2",
+      "name": "古代帕鲁球(强化)",
+      "description": "用于捕获帕鲁的强化古代球体。",
+      "key": "AncientPalSphere2"
+    },
+    {
+      "id": "palegg_mutationpal_05",
+      "name": "巨大突变帕鲁蛋",
+      "description": "发生了非常罕见的特殊变异的巨大帕鲁蛋。",
+      "key": "MutatedEgg05"
+    },
+    {
+      "id": "skillcard_bubbleshower",
+      "name": "技能果实:泡沫射击",
+      "description": "能学会泡沫射击的技能果实。",
+      "key": "SkillBubbleShower"
+    },
+    {
+      "id": "palpassiveskillchange_consumable_pal_fullstomach_down_3",
+      "name": "被动技能变更:饱腹度下降3",
+      "description": "变更帕鲁被动技能为减少饱腹度下降的消耗品。",
+      "key": "PassiveFullStomachDown3"
+    },
+    {
+      "id": "worksuitability_addticket_monsterfarm",
+      "name": "工作适应性券:牧场",
+      "description": "可赋予帕鲁牧场工作适应性的券。",
+      "key": "WorkTicketMonsterFarm"
+    },
+    {
+      "id": "blueprint_accessory_at_1_2",
+      "name": "攻击饰品设计图 Lv.2",
+      "description": "攻击饰品设计图 Lv.2，可用于制作对应装备。",
+      "key": "AccessoryAT12"
+    },
+    {
+      "id": "blueprint_accessory_coldice_1",
+      "name": "冰结饰品设计图 Lv.1",
+      "description": "冰结饰品设计图 Lv.1，可用于制作对应装备。",
+      "key": "AccessoryColdIce1"
+    },
+    {
+      "id": "blueprint_accessory_dfhp_1",
+      "name": "防御HP饰品设计图 Lv.1",
+      "description": "防御HP饰品设计图 Lv.1，可用于制作对应装备。",
+      "key": "AccessoryDFHP1"
+    },
+    {
+      "id": "blueprint_accessory_dragonresist_1_2",
+      "name": "龙抗饰品设计图 Lv.2",
+      "description": "龙抗饰品设计图 Lv.2，可用于制作对应装备。",
+      "key": "AccessoryDragonResist12"
+    },
+    {
+      "id": "blueprint_accessory_hp_1_2",
+      "name": "HP饰品设计图 Lv.2",
+      "description": "HP饰品设计图 Lv.2，可用于制作对应装备。",
+      "key": "AccessoryHP12"
+    },
+    {
+      "id": "blueprint_accessory_heatfire_1",
+      "name": "火焰饰品设计图 Lv.1",
+      "description": "火焰饰品设计图 Lv.1，可用于制作对应装备。",
+      "key": "AccessoryHeatFire1"
+    },
+    {
+      "id": "blueprint_accessory_heatresist_1_2",
+      "name": "耐热饰品设计图 Lv.2",
+      "description": "耐热饰品设计图 Lv.2，可用于制作对应装备。",
+      "key": "AccessoryHeatResist12"
+    },
+    {
+      "id": "blueprint_accessory_iceresist_1_2",
+      "name": "耐寒饰品设计图 Lv.2",
+      "description": "耐寒饰品设计图 Lv.2，可用于制作对应装备。",
+      "key": "AccessoryIceResist12"
+    },
+    {
+      "id": "blueprint_accessory_leafresist_1_2",
+      "name": "耐草饰品设计图 Lv.2",
+      "description": "耐草饰品设计图 Lv.2，可用于制作对应装备。",
+      "key": "AccessoryLeafResist12"
+    },
+    {
+      "id": "blueprint_accessory_ppat_1",
+      "name": "攻击饰品设计图 Lv.1",
+      "description": "攻击饰品设计图 Lv.1，可用于制作对应装备。",
+      "key": "AccessoryPPAT1"
+    },
+    {
+      "id": "blueprint_accessory_ppdf_1",
+      "name": "防御饰品设计图 Lv.1",
+      "description": "防御饰品设计图 Lv.1，可用于制作对应装备。",
+      "key": "AccessoryPPDF1"
+    },
+    {
+      "id": "blueprint_ancientarmor_2",
+      "name": "古代防具设计图 Lv.2",
+      "description": "古代防具设计图 Lv.2，可用于制作对应装备。",
+      "key": "AncientArmor2"
+    },
+    {
+      "id": "blueprint_ancienthelmet_2",
+      "name": "古代头盔设计图 Lv.2",
+      "description": "古代头盔设计图 Lv.2，可用于制作对应装备。",
+      "key": "AncientHelmet2"
+    },
+    {
+      "id": "blueprint_ancienthelmet_3",
+      "name": "古代头盔设计图 Lv.3",
+      "description": "古代头盔设计图 Lv.3，可用于制作对应装备。",
+      "key": "AncientHelmet3"
+    },
+    {
+      "id": "blueprint_ancienthelmet_5",
+      "name": "古代头盔设计图 Lv.5",
+      "description": "古代头盔设计图 Lv.5，可用于制作对应装备。",
+      "key": "AncientHelmet5"
+    },
+    {
+      "id": "blueprint_bat3_4",
+      "name": "棒球棍设计图 Lv.4",
+      "description": "棒球棍设计图 Lv.4，可用于制作对应装备。",
+      "key": "Bat34"
+    },
+    {
+      "id": "blueprint_beamlauncher_3",
+      "name": "光束发射器设计图 Lv.3",
+      "description": "光束发射器设计图 Lv.3，可用于制作对应装备。",
+      "key": "BeamLauncher3"
+    },
+    {
+      "id": "blueprint_beamsword_4",
+      "name": "光束剑设计图 Lv.4",
+      "description": "光束剑设计图 Lv.4，可用于制作对应装备。",
+      "key": "BeamSword4"
+    },
+    {
+      "id": "blueprint_otomo_atelectricity_elementboost_1",
+      "name": "雷属性帕鲁增幅器设计图 Lv.1",
+      "description": "雷属性帕鲁增幅器设计图 Lv.1，可用于制作对应装备。",
+      "key": "OtomoATElec1"
+    },
+    {
+      "id": "blueprint_otomo_elementboost_dark_1_2",
+      "name": "暗属性帕鲁增幅器设计图 Lv.2",
+      "description": "暗属性帕鲁增幅器设计图 Lv.2，可用于制作对应装备。",
+      "key": "OtomoDark12"
+    },
+    {
+      "id": "blueprint_otomo_elementboost_dragon_1_2",
+      "name": "龙属性帕鲁增幅器设计图 Lv.2",
+      "description": "龙属性帕鲁增幅器设计图 Lv.2，可用于制作对应装备。",
+      "key": "OtomoDragon12"
+    },
+    {
+      "id": "blueprint_otomo_elementboost_earth_1_2",
+      "name": "地属性帕鲁增幅器设计图 Lv.2",
+      "description": "地属性帕鲁增幅器设计图 Lv.2，可用于制作对应装备。",
+      "key": "OtomoEarth12"
+    },
+    {
+      "id": "blueprint_otomo_elementboost_electricity_1_2",
+      "name": "雷属性帕鲁增幅器设计图 Lv.2",
+      "description": "雷属性帕鲁增幅器设计图 Lv.2，可用于制作对应装备。",
+      "key": "OtomoElec12"
+    },
+    {
+      "id": "blueprint_otomo_elementboost_ice_1_2",
+      "name": "冰属性帕鲁增幅器设计图 Lv.2",
+      "description": "冰属性帕鲁增幅器设计图 Lv.2，可用于制作对应装备。",
+      "key": "OtomoIce12"
+    },
+    {
+      "id": "blueprint_skyassaultrifle_3",
+      "name": "天坠突击步枪设计图 Lv.3",
+      "description": "天坠突击步枪设计图 Lv.3，可用于制作对应装备。",
+      "key": "SkyAssaultRifle3"
+    },
+    {
+      "id": "blueprint_skybeamsword_4",
+      "name": "天坠光束剑设计图 Lv.4",
+      "description": "天坠光束剑设计图 Lv.4，可用于制作对应装备。",
+      "key": "SkyBeamSword4"
+    },
+    {
+      "id": "blueprint_skybow_2",
+      "name": "天坠弓设计图 Lv.2",
+      "description": "天坠弓设计图 Lv.2，可用于制作对应装备。",
+      "key": "SkyBow2"
+    },
+    {
+      "id": "blueprint_skybow_3",
+      "name": "天坠弓设计图 Lv.3",
+      "description": "天坠弓设计图 Lv.3，可用于制作对应装备。",
+      "key": "SkyBow3"
+    },
+    {
+      "id": "blueprint_skybow_5",
+      "name": "天坠弓设计图 Lv.5",
+      "description": "天坠弓设计图 Lv.5，可用于制作对应装备。",
+      "key": "SkyBow5"
+    },
+    {
+      "id": "blueprint_skyshotgun_2",
+      "name": "天坠霰弹枪设计图 Lv.2",
+      "description": "天坠霰弹枪设计图 Lv.2，可用于制作对应装备。",
+      "key": "SkyShotgun2"
+    },
+    {
+      "id": "blueprint_skysubmachinegun_2",
+      "name": "天坠冲锋枪设计图 Lv.2",
+      "description": "天坠冲锋枪设计图 Lv.2，可用于制作对应装备。",
+      "key": "SkySMG2"
+    },
+    {
+      "id": "blueprint_skysubmachinegun_3",
+      "name": "天坠冲锋枪设计图 Lv.3",
+      "description": "天坠冲锋枪设计图 Lv.3，可用于制作对应装备。",
+      "key": "SkySMG3"
+    },
+    {
+      "id": "blueprint_skysubmachinegun_4",
+      "name": "天坠冲锋枪设计图 Lv.4",
+      "description": "天坠冲锋枪设计图 Lv.4，可用于制作对应装备。",
+      "key": "SkySMG4"
+    },
+    {
+      "id": "blueprint_sword_2",
+      "name": "剑设计图 Lv.2",
+      "description": "剑设计图 Lv.2，可用于制作对应装备。",
+      "key": "Sword2"
+    },
+    {
+      "id": "blueprint_sword_3",
+      "name": "剑设计图 Lv.3",
+      "description": "剑设计图 Lv.3，可用于制作对应装备。",
+      "key": "Sword3"
+    },
+    {
+      "id": "blueprint_sword_4",
+      "name": "剑设计图 Lv.4",
+      "description": "剑设计图 Lv.4，可用于制作对应装备。",
+      "key": "Sword4"
+    },
+    {
+      "id": "blueprint_widepenetrateshotgun_3",
+      "name": "穿透霰弹枪设计图 Lv.3",
+      "description": "穿透霰弹枪设计图 Lv.3，可用于制作对应装备。",
+      "key": "WPSG3"
     }
   ]
 }
